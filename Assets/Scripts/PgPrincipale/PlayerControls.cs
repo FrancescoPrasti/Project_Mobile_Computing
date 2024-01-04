@@ -53,6 +53,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attacco"",
+                    ""type"": ""Button"",
+                    ""id"": ""e925d1be-fdf4-44e5-9608-c9d5d2cd1092"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -121,6 +130,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d2faa8b4-1141-4b28-a03c-26ba14e7e810"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attacco"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -132,6 +152,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Terreno_Movimento = m_Terreno.FindAction("Movimento", throwIfNotFound: true);
         m_Terreno_Salto = m_Terreno.FindAction("Salto", throwIfNotFound: true);
         m_Terreno_Shoot = m_Terreno.FindAction("Shoot", throwIfNotFound: true);
+        m_Terreno_Attacco = m_Terreno.FindAction("Attacco", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -196,6 +217,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Terreno_Movimento;
     private readonly InputAction m_Terreno_Salto;
     private readonly InputAction m_Terreno_Shoot;
+    private readonly InputAction m_Terreno_Attacco;
     public struct TerrenoActions
     {
         private @PlayerControls m_Wrapper;
@@ -203,6 +225,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Movimento => m_Wrapper.m_Terreno_Movimento;
         public InputAction @Salto => m_Wrapper.m_Terreno_Salto;
         public InputAction @Shoot => m_Wrapper.m_Terreno_Shoot;
+        public InputAction @Attacco => m_Wrapper.m_Terreno_Attacco;
         public InputActionMap Get() { return m_Wrapper.m_Terreno; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -221,6 +244,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @Attacco.started += instance.OnAttacco;
+            @Attacco.performed += instance.OnAttacco;
+            @Attacco.canceled += instance.OnAttacco;
         }
 
         private void UnregisterCallbacks(ITerrenoActions instance)
@@ -234,6 +260,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @Attacco.started -= instance.OnAttacco;
+            @Attacco.performed -= instance.OnAttacco;
+            @Attacco.canceled -= instance.OnAttacco;
         }
 
         public void RemoveCallbacks(ITerrenoActions instance)
@@ -256,5 +285,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMovimento(InputAction.CallbackContext context);
         void OnSalto(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnAttacco(InputAction.CallbackContext context);
     }
 }

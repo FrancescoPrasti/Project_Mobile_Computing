@@ -16,12 +16,12 @@ public class PlayerShoot : MonoBehaviour
         controls = new PlayerControls();
         controls.Enable();
 
-        controls.Terreno.Shoot.performed += ctx => Fire();
+        controls.Terreno.Shoot.performed += ctx => animator.SetTrigger("shoot");
     }
 
     void Fire()
     {
-        animator.SetTrigger("shoot");
+        //animator.SetTrigger("shoot");
         GameObject go = Instantiate(fireBall, fireBallHole.position, fireBall.transform.rotation);
         
         if(GetComponent<PlayerMovement>().right)

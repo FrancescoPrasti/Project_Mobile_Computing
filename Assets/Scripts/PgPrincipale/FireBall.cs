@@ -11,11 +11,11 @@ public class FireBall : MonoBehaviour
              Destroy(collision.gameObject);
              Destroy(gameObject);
         }
-        /*if(collision.tag == "Scheletro")
+        if(collision.tag == "Scheletro")
         {
             collision.GetComponent<Scheletro>().TakeDamage(25);
             Destroy(gameObject);
-        }*/
+        }
            
     }
 }
