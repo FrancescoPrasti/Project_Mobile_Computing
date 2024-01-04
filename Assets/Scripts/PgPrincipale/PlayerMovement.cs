@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Variabili animazioni
     public Animator animator;
-    bool right = true;
+    public bool right = true;
    
 
     private void Awake()
