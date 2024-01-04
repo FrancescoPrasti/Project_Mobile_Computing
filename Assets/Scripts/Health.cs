@@ -23,5 +23,6 @@ public class HealthManager : MonoBehaviour
         {
             cuori[i].sprite = cuorePieno;
         }
+
     }
 }
