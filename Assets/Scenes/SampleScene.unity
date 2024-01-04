@@ -453,7 +453,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3835897, y: -0.81999946, z: -10}
+  m_LocalPosition: {x: -1.7221212, y: -0.81999946, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1202,6 +1202,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772570141}
   m_CullTransparentMesh: 1
+--- !u!1 &781215871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 781215872}
+  m_Layer: 0
+  m_Name: fireBallHole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &781215872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781215871}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.144, y: 0.069, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1487365130}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &938404110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2204,7 +2235,7 @@ Transform:
   m_GameObject: {fileID: 1180957232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3835897, y: -0.81999946, z: -10}
+  m_LocalPosition: {x: -1.7221212, y: -0.81999946, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2559,6 +2590,7 @@ GameObject:
   - component: {fileID: 1487365126}
   - component: {fileID: 1487365131}
   - component: {fileID: 1487365132}
+  - component: {fileID: 1487365133}
   m_Layer: 0
   m_Name: Fire Warrior
   m_TagString: Untagged
@@ -2715,6 +2747,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 761786702}
+  - {fileID: 781215872}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1487365131
@@ -2736,6 +2769,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   animator: {fileID: 1487365128}
+  right: 1
 --- !u!114 &1487365132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2755,6 +2789,22 @@ MonoBehaviour:
   - {fileID: 1604332927}
   cuorePieno: {fileID: 1152103680, guid: 593877d32d9ff7742ab331d7bf0b2f45, type: 3}
   cuoreVuoto: {fileID: -1889621726, guid: 593877d32d9ff7742ab331d7bf0b2f45, type: 3}
+--- !u!114 &1487365133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487365125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f84c28914b3c593409cfd0532a4d65fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1487365128}
+  fireBall: {fileID: 2340041330154189938, guid: bcf02c7f4d3d05d4db73e06f62c6a5f3, type: 3}
+  fireBallHole: {fileID: 781215872}
+  force: 100
 --- !u!1 &1548868423
 GameObject:
   m_ObjectHideFlags: 0
