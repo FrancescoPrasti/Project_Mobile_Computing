@@ -453,7 +453,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.304901, y: -0.81999946, z: -10}
+  m_LocalPosition: {x: -3.3857956, y: -0.81999946, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2235,7 +2235,7 @@ Transform:
   m_GameObject: {fileID: 1180957232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.304901, y: -0.81999946, z: -10}
+  m_LocalPosition: {x: -3.3857956, y: -0.81999946, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2960,7 +2960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1487365128}
-  fireBall: {fileID: 2340041330154189938, guid: bcf02c7f4d3d05d4db73e06f62c6a5f3, type: 3}
+  fireBall: {fileID: 8544985309695102529, guid: 25fba06e31dc4da4b9c53001544f99dd, type: 3}
   fireBallHole: {fileID: 781215872}
   force: 250
 --- !u!114 &1487365134
