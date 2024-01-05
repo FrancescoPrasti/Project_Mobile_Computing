@@ -25,9 +25,15 @@ public class PlayerShoot : MonoBehaviour
         GameObject go = Instantiate(fireBall, fireBallHole.position, fireBall.transform.rotation);
         
         if(GetComponent<PlayerMovement>().right)
+        {
+            go.transform.localScale = new Vector2(3, 3);
             go.GetComponent<Rigidbody2D>().AddForce(Vector2.right * force);
+        }
         else
+        {
+            go.transform.localScale = new Vector2(-3, 3);
             go.GetComponent<Rigidbody2D>().AddForce(Vector2.left * force);
+        }
         Destroy(go, 1.5f);
     }
 }
