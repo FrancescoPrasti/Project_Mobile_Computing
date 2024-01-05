@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8eed00df6f5701647ad7681547a6bfdd
+guid: 658cc91913c475949ad94178d3f670dd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,19 +69,6 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FireBall-Sheet_0
+      name: coin-animation_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 9
-        width: 17
-        height: 7
+        x: 0
+        y: 0
+        width: 65
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a87585fad6e14e4db839063c12bdbe4
-      internalID: 2089340511
+      spriteID: 9272ef8a00efaa6419ec1b67ca1d36e6
+      internalID: -1551038932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireBall-Sheet_1
+      name: coin-animation_1
       rect:
         serializedVersion: 2
-        x: 31
-        y: 9
-        width: 15
-        height: 7
+        x: 71
+        y: 0
+        width: 51
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e34881a8647e5445a1ecf73b370f82c
-      internalID: 1915415506
+      spriteID: 30cb65ae5308315468cde7da0f1aef93
+      internalID: -285498868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireBall-Sheet_2
+      name: coin-animation_2
       rect:
         serializedVersion: 2
-        x: 57
-        y: 9
-        width: 15
-        height: 7
+        x: 149
+        y: 0
+        width: 23
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78984885d96210244b77f1edafdcc3be
-      internalID: -1405748856
+      spriteID: 5035734ca6c639247b2dca11ce84bfe7
+      internalID: -277213100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireBall-Sheet_3
+      name: coin-animation_3
       rect:
         serializedVersion: 2
-        x: 83
-        y: 9
-        width: 15
-        height: 7
+        x: 199
+        y: 0
+        width: 50
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,113 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15ead08948f0e4949a54716aef0404d4
-      internalID: 1543410306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireBall-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 9
-        width: 10
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36db4fc265f06dc448f4adba45874ca1
-      internalID: 237481745
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireBall-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 9
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 14752242c55c9614f95a23f54f1cf8e6
-      internalID: 1038434478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireBall-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 8
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25904526186bb36448464b4c9c6ecd45
-      internalID: 298615526
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireBall-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 7
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8960b64f5ac0da49bbb02e76f3c17ef
-      internalID: 1675152739
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireBall-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 219
-        y: 7
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17346be3dbce444449ef30a928f12bc2
-      internalID: 1763668614
+      spriteID: 59b2146a6ca81194484526d637d91c09
+      internalID: 1808688848
       vertices: []
       indices: 
       edges: []
@@ -322,15 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FireBall-Sheet_0: 2089340511
-      FireBall-Sheet_1: 1915415506
-      FireBall-Sheet_2: -1405748856
-      FireBall-Sheet_3: 1543410306
-      FireBall-Sheet_4: 237481745
-      FireBall-Sheet_5: 1038434478
-      FireBall-Sheet_6: 298615526
-      FireBall-Sheet_7: 1675152739
-      FireBall-Sheet_8: 1763668614
+      coin-animation_0: -1551038932
+      coin-animation_1: -285498868
+      coin-animation_2: -277213100
+      coin-animation_3: 1808688848
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
