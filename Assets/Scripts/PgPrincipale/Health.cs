@@ -6,12 +6,19 @@ using UnityEngine.UI;
 public class HealthManager : MonoBehaviour
 {
 
-    public int health = 3;
+    public static int health = 3;
     public Image[] cuori;
 
     public Sprite cuorePieno;
     public Sprite cuoreVuoto;
-    
+
+     void Awake()
+    {
+        health = 3;
+    }
+
+
+
     void FixedUpdate()
     {
         foreach(Image img in cuori)

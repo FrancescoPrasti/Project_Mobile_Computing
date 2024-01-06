@@ -8,18 +8,24 @@ public class Scheletro : MonoBehaviour
     public int enemyHP = 100;
     public Animator animator;
 
+    
 
+    
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-        Physics2D.IgnoreCollision(target.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
+        //Physics2D.IgnoreCollision(target.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(target.position.x > transform.position.x)
+    
+
+
+
+        if (target.position.x > transform.position.x)
         {
             transform.localScale = new Vector2(-3.75f,3.75f);
         }else
