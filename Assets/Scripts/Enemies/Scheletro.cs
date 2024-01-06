@@ -49,6 +49,12 @@ public class Scheletro : MonoBehaviour
 
     public void death()
     {
-        transform.position = new Vector2(transform.position.x, -4.45f);  
+        transform.position = new Vector2(transform.position.x, -4.45f);
+
+        if(ManaManager.mana < 3)
+        {
+            ManaManager.mana++;
+        }
+
     }
 }
