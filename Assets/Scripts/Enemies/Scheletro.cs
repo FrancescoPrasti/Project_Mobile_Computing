@@ -11,6 +11,8 @@ public class Scheletro : MonoBehaviour
     public GameObject[] itemDrops;
     private bool itemDropped = false;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
