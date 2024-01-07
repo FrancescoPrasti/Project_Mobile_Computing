@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ManaManager : MonoBehaviour
 {
-    public static int mana = 3;
+    public static int mana;
     public Image[] manaV;
 
     public Sprite manaPieno;
