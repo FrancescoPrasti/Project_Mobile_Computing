@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         isGameOver = false;
+        CoinNumber = 0;
     }
 
     void Start()
