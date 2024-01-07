@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class ManaManager : MonoBehaviour
 {
-    public int mana = 3;
+    public static int mana = 3;
     public Image[] manaV;
 
     public Sprite manaPieno;
     public Sprite manaVuoto;
+
+    void Awake()
+    {
+        mana = 3;
+    }
 
     void FixedUpdate()
     {
