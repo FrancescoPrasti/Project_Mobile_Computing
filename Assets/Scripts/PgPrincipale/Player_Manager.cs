@@ -35,4 +35,9 @@ public class PlayerManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
 }

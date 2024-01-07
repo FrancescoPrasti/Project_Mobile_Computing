@@ -13,7 +13,7 @@ public class FireBall : MonoBehaviour
         }
         if(collision.tag == "Scheletro")
         {
-            collision.GetComponent<Scheletro>().TakeDamage(25);
+            collision.GetComponent<Scheletro>().TakeDamage(50);
             Destroy(gameObject);
         }
            

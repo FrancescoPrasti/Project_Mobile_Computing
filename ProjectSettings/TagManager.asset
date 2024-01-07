@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Scheletro
   - Enemy
+  - Mana
+  - Coin
   layers:
   - Default
   - TransparentFX
