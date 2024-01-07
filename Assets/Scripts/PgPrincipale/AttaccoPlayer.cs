@@ -21,4 +21,6 @@ public class AttaccoPlayer : MonoBehaviour
         animator.SetTrigger("attacco");
     }
 
+
+
 }
