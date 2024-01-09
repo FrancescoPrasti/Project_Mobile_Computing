@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class CoinAbitanti : MonoBehaviour
+public class ManaDrop : MonoBehaviour
 {
     private Rigidbody2D itemRb;
     public float dropForce = 5;
@@ -15,7 +14,7 @@ public class CoinAbitanti : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(itemRb != null && itemRb.position.y <= -3.92f)
+        if (itemRb != null && itemRb.position.y <= -3.92f)
             Destroy(itemRb.GetComponent<Rigidbody2D>());
     }
 
@@ -23,8 +22,11 @@ public class CoinAbitanti : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-            PlayerManager.CoinNumber++;
-            Destroy(gameObject);
+            if (ManaManager.mana < 3)
+            {
+                ManaManager.mana++;
+                Destroy(gameObject);
+            }
         }
     }
 }

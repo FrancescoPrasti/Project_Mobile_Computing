@@ -49,4 +49,6 @@ public class AttaccoPlayer : MonoBehaviour
         isAttacking = false;
     }
 
+
+
 }

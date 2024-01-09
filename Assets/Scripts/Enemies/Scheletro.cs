@@ -8,9 +8,11 @@ public class Scheletro : MonoBehaviour
     public int enemyHP = 100;
     public Animator animator;
 
-    
+    public GameObject[] itemDrops;
+    private bool itemDropped = false;
 
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,10 +53,15 @@ public class Scheletro : MonoBehaviour
     {
         transform.position = new Vector2(transform.position.x, -4.45f);
 
-        if(ManaManager.mana < 3)
+        if (itemDropped == false)
+        {
+            ItemDrop();
+            itemDropped = true;
+        }
+        /*if(ManaManager.mana < 3)
         {
             ManaManager.mana++;
-        }
+        }*/
 
     }
 
@@ -66,4 +73,13 @@ public class Scheletro : MonoBehaviour
             target.GetComponent<PlayerCollision>().TakeDamage();
         }
     }
+
+    private void ItemDrop()
+    {
+        for (int i = 0; i < itemDrops.Length; i++)
+        {
+            Instantiate(itemDrops[i], transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        }
+    }
+
 }
