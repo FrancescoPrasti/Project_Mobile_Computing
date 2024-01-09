@@ -4611,7 +4611,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 20
   m_Sprite: {fileID: -88866596, guid: 7b8ccc15206f95f4b943b947633890f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4695,7 +4695,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   attackRange: 0.1
-  damage: 25
 --- !u!114 &1487365135
 MonoBehaviour:
   m_ObjectHideFlags: 0
