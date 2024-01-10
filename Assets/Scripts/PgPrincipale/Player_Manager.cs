@@ -8,8 +8,10 @@ public class PlayerManager : MonoBehaviour
 {
     public static int CoinNumber;
     public TextMeshProUGUI CoinText;
+
     public static bool isGameOver;
     public GameObject GameOverScreen;
+    public GameObject pauseMenuScreen;
     private void Awake()
     {
         isGameOver = false;
@@ -39,5 +41,18 @@ public class PlayerManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+        pauseMenuScreen.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        pauseMenuScreen.SetActive(false);
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1;
     }
 }
