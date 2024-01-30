@@ -35,6 +35,7 @@ public class PlayerCollision : MonoBehaviour
         if (HealthManager.health <= 0)
         {
             PlayerManager.isGameOver = true;
+            AudioManager.instance.Stop("VillageMusic");
             gameObject.SetActive(false);
         }
         else

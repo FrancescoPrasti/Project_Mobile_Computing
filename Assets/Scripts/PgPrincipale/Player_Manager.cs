@@ -20,7 +20,7 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-
+        AudioManager.instance.Play("VillageMusic");
     }
 
 
@@ -52,6 +52,7 @@ public class PlayerManager : MonoBehaviour
 
     public void GoToMenu()
     {
+        AudioManager.instance.Stop("VillageMusic");
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1;
     }

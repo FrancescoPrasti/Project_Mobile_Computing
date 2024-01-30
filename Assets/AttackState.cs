@@ -16,7 +16,7 @@ public class AttackState : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
       float distance = Vector2.Distance(target.position, animator.transform.position);
-        if(distance > 0.6f)
+        if(distance > 1.5f)
             animator.SetBool("IsAttacking", false);
     }
 
