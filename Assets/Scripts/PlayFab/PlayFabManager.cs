@@ -12,6 +12,8 @@ public class PlayFabManager : MonoBehaviour
     public Text messageText;
     public InputField emailInput;
     public InputField passwordInput;
+    public GameObject levelsMenu;
+    public GameObject loginPanel;
     public void RegisterButton()
     {
         if (passwordInput.text.Length < 6)
@@ -30,7 +32,7 @@ public class PlayFabManager : MonoBehaviour
 
     void OnRegisterSuccess(RegisterPlayFabUserResult result)
     {
-        messageText.text = "registered and logged in";
+        messageText.text = "Registered and logged in";
     }
 
     public void LoginButton()
@@ -47,7 +49,9 @@ public class PlayFabManager : MonoBehaviour
     void OnLoginSuccess(LoginResult result)
     {
         messageText.text = "Logged in!";
-        Debug.Log("Successful login/account create!");
+        Debug.Log("Successful login!");
+        levelsMenu.SetActive(true);
+        loginPanel.SetActive(false);
 
     }
 
@@ -73,10 +77,6 @@ public class PlayFabManager : MonoBehaviour
        // Login();
     }
 
-     void FixedUpdate()
-    {
-        
-    }
     // Update is called once per frame
    /* void Login()
     {
@@ -100,4 +100,6 @@ public class PlayFabManager : MonoBehaviour
        // Debug.Log("Error while logging in/creating account");
         Debug.Log(error.GenerateErrorReport());
     }
+
+
 }
