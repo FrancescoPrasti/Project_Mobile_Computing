@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 400;
 
     // Variabili salto
-    private float salto = 5;
+    public float salto = 5;
     bool aTerra;
     public Transform groundCheck;
     public LayerMask groundLayer;

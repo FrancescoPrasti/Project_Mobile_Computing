@@ -16,7 +16,7 @@ public class IdleState : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         float distance = Vector2.Distance(target.position, animator.transform.position);
-        if(distance < 8f)
+        if(distance < 8f && HealthManager.health > 0)
             animator.SetBool("IsChasing", true);
     }
 
