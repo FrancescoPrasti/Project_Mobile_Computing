@@ -21,7 +21,9 @@ public class PlayerMovement : MonoBehaviour
     // Variabili animazioni
     public Animator animator;
     public bool right = true;
-   
+
+    
+
 
     private void Awake()
     {
