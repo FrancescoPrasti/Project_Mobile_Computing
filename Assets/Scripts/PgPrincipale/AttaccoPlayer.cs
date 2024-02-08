@@ -41,6 +41,7 @@ public class AttaccoPlayer : MonoBehaviour
 
     public void inizioAttacco()
     {
+        //this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 0.5f);
         isAttacking = true;
     }
 

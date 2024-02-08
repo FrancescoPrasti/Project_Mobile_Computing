@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Variabili movimento orizzontale
-    private PlayerControls controls;
+    public PlayerControls controls;
     public Rigidbody2D player;
     private float direction = 0;
     public float speed = 400;
@@ -41,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(PlayerManager.isGameOver == true)
+            controls.Disable();
         aTerra = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
         animator.SetBool("aTerra", aTerra);
 
