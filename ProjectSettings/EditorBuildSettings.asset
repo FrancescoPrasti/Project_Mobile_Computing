@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Scenes/Castello.unity
+    guid: 5593c0dc2a85ded42af4a19cfca4d8f1
+  - enabled: 1
+    path: Assets/Scenes/Stanza1.unity
+    guid: c1fbc1b588379c94bbe0b1229314a5dd
+  - enabled: 1
+    path: Assets/Scenes/Stanza2.unity
+    guid: e2e56cd49f6ace34bb9e30949fe3ae22
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 79653548f6941bb439d1cda8021c5eab, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: c76438853667f6a408f36ea2e03bfd45, type: 2}
