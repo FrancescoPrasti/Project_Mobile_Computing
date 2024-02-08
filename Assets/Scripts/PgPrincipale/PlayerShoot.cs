@@ -21,13 +21,23 @@ public class PlayerShoot : MonoBehaviour
 
     void Fire()
     {
-        //animator.SetTrigger("shoot");
-        GameObject go = Instantiate(fireBall, fireBallHole.position, fireBall.transform.rotation);
-        
-        if(GetComponent<PlayerMovement>().right)
-            go.GetComponent<Rigidbody2D>().AddForce(Vector2.right * force);
-        else
-            go.GetComponent<Rigidbody2D>().AddForce(Vector2.left * force);
-        Destroy(go, 1.5f);
+        if (ManaManager.mana != 0)
+        {
+            //animator.SetTrigger("shoot");
+            GameObject go = Instantiate(fireBall, fireBallHole.position, fireBall.transform.rotation);
+            ManaManager.mana--;
+
+            if (GetComponent<PlayerMovement>().right)
+            {
+                go.transform.localScale = new Vector2(5, 5);
+                go.GetComponent<Rigidbody2D>().AddForce(Vector2.right * force);
+            }
+            else
+            {
+                go.transform.localScale = new Vector2(-5, 5);
+                go.GetComponent<Rigidbody2D>().AddForce(Vector2.left * force);
+            }
+            Destroy(go, 1.5f);
+        }
     }
 }

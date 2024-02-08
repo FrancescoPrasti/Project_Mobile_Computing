@@ -10,14 +10,15 @@ public class AttackState : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+    
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
       float distance = Vector2.Distance(target.position, animator.transform.position);
-        if(distance > 0.6f)
-            animator.SetBool("IsAttacking", false);  
+        if(distance > 1.5f || HealthManager.health <= 0)
+            animator.SetBool("IsAttacking", false);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

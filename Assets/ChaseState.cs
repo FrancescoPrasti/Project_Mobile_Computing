@@ -16,14 +16,17 @@ public class ChaseState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if(HealthManager.health <= 0)
+              animator.SetBool("IsChasing", false);     
         Vector2 newPos = new Vector2(target.position.x, animator.transform.position.y);
         animator.transform.position = Vector2.MoveTowards(animator.transform.position, newPos, speed * Time.deltaTime);
 
         float distance = Vector2.Distance(target.position, animator.transform.position);
-        if(distance < 0.5f)
+        if(distance < 1.5f)
             animator.SetBool("IsAttacking", true);
-        else if(distance > 3.1f)
-            animator.SetBool("IsChasing", false);
+        else if(distance > 8f){
+              animator.SetBool("IsChasing", false);   
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
