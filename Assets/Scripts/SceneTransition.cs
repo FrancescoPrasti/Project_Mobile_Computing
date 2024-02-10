@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneTransition : MonoBehaviour
 {
     FadeInOut fade;
     public string sceneToLoad;
+    public Button TransitionButton;
 
 
      void Start()
@@ -24,7 +26,22 @@ public class SceneTransition : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            StartCoroutine(ChangeScene());
+           TransitionButton.gameObject.SetActive(true);
+
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            TransitionButton.gameObject.SetActive(false);
+
+        }
+    }
+
+    public void Transizione()
+    {
+        StartCoroutine(ChangeScene());
+
     }
 }
