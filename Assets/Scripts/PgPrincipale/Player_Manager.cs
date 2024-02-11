@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject[] playerPrefabs;
     int characterIndex;
 
+
     public new Vector3 posIniziale;
     private void Awake()
     {
