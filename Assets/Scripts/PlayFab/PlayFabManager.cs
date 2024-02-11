@@ -4,6 +4,7 @@ using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.UI;
+using System;
 
 public class PlayFabManager : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class PlayFabManager : MonoBehaviour
     public InputField passwordInput;
     public GameObject levelsMenu;
     public GameObject loginPanel;
+
+    public GameObject rowPrefab;
+    public Transform rowsParent;
+    
     public void RegisterButton()
     {
         if (passwordInput.text.Length < 6)
@@ -39,7 +44,7 @@ public class PlayFabManager : MonoBehaviour
     {
         var request= new LoginWithEmailAddressRequest { 
             Email = emailInput.text,
-            Password=passwordInput.text
+            Password = passwordInput.text
         };
         PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnError);
 
@@ -71,35 +76,62 @@ public class PlayFabManager : MonoBehaviour
         messageText.text = "Password reset mail sent";
 
     }
-    
-    void Start()
-    {
-       // Login();
-    }
-
-    // Update is called once per frame
-   /* void Login()
-    {
-        var request = new LoginWithCustomIDRequest
-        {
-            CustomId = SystemInfo.deviceUniqueIdentifier,
-            CreateAccount = true
-        };
-        PlayFabClientAPI.LoginWithCustomID(request, OnSuccess, OnError);
-    }
-
-    void OnSuccess(LoginResult result)
-    {
-        Debug.Log("Successful login/account create!");
-        
-    }*/
 
     void OnError(PlayFabError error)
     {
         messageText.text = error.ErrorMessage;
-       // Debug.Log("Error while logging in/creating account");
         Debug.Log(error.GenerateErrorReport());
     }
 
+    public void SendLeaderboard(int score)
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate>
+            {
+                new StatisticUpdate
+                {
+                    StatisticName = "ScorePoints",
+                    Value = score
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardSent, OnError);
+    }
+
+    void OnLeaderboardSent(UpdatePlayerStatisticsResult result)
+    {
+        Debug.Log("Leaderboard Successfully sent");
+    }
+
+    public void getLeaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "ScorePoints",
+            StartPosition = 0,
+            MaxResultsCount = 10
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
+    }
+
+    void OnLeaderboardGet(GetLeaderboardResult result)
+    {
+        foreach(Transform item in rowsParent)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach(var item in result.Leaderboard)
+        {
+            GameObject newGo = Instantiate(rowPrefab, rowsParent);
+            Text[] texts = newGo.GetComponentsInChildren<Text>();
+            texts[0].text = (item.Position + 1).ToString();
+            texts[1].text = item.PlayFabId;
+            texts[2].text = item.StatValue.ToString();
+
+            Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
+        }
+    }
 
 }
