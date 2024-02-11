@@ -32,8 +32,8 @@ public class PlayerCollision : MonoBehaviour
 
     public void TakeDamage()
     {
-        //HealthManager.health--;
-        HealthManager.health = 0;
+        HealthManager.health--;
+        //HealthManager.health = 0;
         if (HealthManager.health <= 0)
         {
             animator.SetTrigger("Death");

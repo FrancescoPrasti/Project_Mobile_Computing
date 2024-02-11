@@ -18,6 +18,8 @@ public class PlayerManager : MonoBehaviour
     public CinemachineVirtualCamera VCam;
     public GameObject[] playerPrefabs;
     int characterIndex;
+
+
     public new Vector3 posIniziale;
     private void Awake()
     {
