@@ -21,7 +21,9 @@ public class PlayerMovement : MonoBehaviour
     // Variabili animazioni
     public Animator animator;
     public bool right = true;
-   
+
+    
+
 
     private void Awake()
     {
@@ -39,19 +41,24 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(PlayerManager.isGameOver == true)
+        if(PlayerManager.isGameOver == true && aTerra == true){
             controls.Disable();
-        aTerra = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
-        animator.SetBool("aTerra", aTerra);
-
-        player.velocity = new Vector2(direction * speed * Time.fixedDeltaTime, player.velocity.y);
-        animator.SetFloat("speed", Mathf.Abs(direction));
-
-        if(right && direction < 0 || !right && direction > 0)
-        {
-            Inverti();
+            Destroy(GetComponent<Rigidbody2D>());
         }
+        else if(PlayerManager.isGameOver == true)
+            controls.Disable();
+        else{
+            aTerra = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+            animator.SetBool("aTerra", aTerra);
 
+            player.velocity = new Vector2(direction * speed * Time.fixedDeltaTime, player.velocity.y);
+            animator.SetFloat("speed", Mathf.Abs(direction));
+
+            if(right && direction < 0 || !right && direction > 0)
+            {
+                Inverti();
+            }
+        }
     }
 
     void Inverti()

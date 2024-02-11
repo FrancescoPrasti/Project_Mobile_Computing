@@ -18,10 +18,11 @@ public class PlayerManager : MonoBehaviour
     public CinemachineVirtualCamera VCam;
     public GameObject[] playerPrefabs;
     int characterIndex;
+    public new Vector3 posIniziale;
     private void Awake()
     {
         characterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
-        GameObject player = Instantiate(playerPrefabs[characterIndex], new Vector3(-12.04f, -3.82f, 0), Quaternion.identity);
+        GameObject player = Instantiate(playerPrefabs[characterIndex], posIniziale, Quaternion.identity);
         VCam.m_Follow = player.transform;
 
         CoinNumber = PlayerPrefs.GetInt("CoinNumber", 0);  // se non esiste la variabile CoinNumber la crea e la inizializza a zero

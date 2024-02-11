@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Mana
   - Coin
+  - Ghost
+  - Activation1
+  - Activation2
   layers:
   - Default
   - TransparentFX
