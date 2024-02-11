@@ -10,9 +10,13 @@ public class PlayFabManager : MonoBehaviour
 {
 
     [Header("UI")]
-    public Text messageText;
-    public InputField emailInput;
-    public InputField passwordInput;
+    public Text messageLoginText;
+    public Text messageRegistrationText;
+    public InputField usernameField;
+    public InputField emailLoginInput;
+    public InputField passwordLoginInput;
+    public InputField emailRegistrationInput;
+    public InputField passwordRegistrationInput;
     public GameObject levelsMenu;
     public GameObject loginPanel;
 
@@ -21,30 +25,41 @@ public class PlayFabManager : MonoBehaviour
     
     public void RegisterButton()
     {
-        if (passwordInput.text.Length < 6)
+        if (passwordRegistrationInput.text.Length < 6)
         {
-            messageText.text = "Password too short ";
+            messageRegistrationText.text = "Password too short ";
             return;
-        } 
-        var request = new RegisterPlayFabUserRequest
+        }
+        var request1 = new RegisterPlayFabUserRequest
         {
-            Email = emailInput.text,
-            Password = passwordInput.text,
+            Email = emailRegistrationInput.text,
+            Password = passwordRegistrationInput.text,
+            DisplayName = usernameField.text,
             RequireBothUsernameAndEmail = false
         };
-        PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnError);
+        /*var request2 = new UpdateUserTitleDisplayNameRequest
+        {
+            DisplayName = usernameField.text,
+        };*/
+        PlayFabClientAPI.RegisterPlayFabUser(request1, OnRegisterSuccess, OnError);
+        //PlayFabClientAPI.UpdateUserTitleDisplayName(request2, OnDisplayNameUpdate, OnError);
     }
 
     void OnRegisterSuccess(RegisterPlayFabUserResult result)
     {
-        messageText.text = "Registered and logged in";
+        messageRegistrationText.text = "Registered and logged in";
+    }
+
+    void OnDisplayNameUpdate(UpdateUserTitleDisplayNameResult result)
+    {
+        Debug.Log("Updated display name!");
     }
 
     public void LoginButton()
     {
         var request= new LoginWithEmailAddressRequest { 
-            Email = emailInput.text,
-            Password = passwordInput.text
+            Email = emailLoginInput.text,
+            Password = passwordLoginInput.text
         };
         PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnError);
 
@@ -53,7 +68,7 @@ public class PlayFabManager : MonoBehaviour
 
     void OnLoginSuccess(LoginResult result)
     {
-        messageText.text = "Logged in!";
+        messageLoginText.text = "Logged in!";
         Debug.Log("Successful login!");
         levelsMenu.SetActive(true);
         loginPanel.SetActive(false);
@@ -64,7 +79,7 @@ public class PlayFabManager : MonoBehaviour
     {
         var request = new SendAccountRecoveryEmailRequest
         {
-            Email = emailInput.text,
+            Email = emailLoginInput.text,
             TitleId = "E218D"
         };
         PlayFabClientAPI.SendAccountRecoveryEmail(request, OnPasswordReset, OnError);
@@ -73,13 +88,13 @@ public class PlayFabManager : MonoBehaviour
 
     void OnPasswordReset(SendAccountRecoveryEmailResult result)
     {
-        messageText.text = "Password reset mail sent";
+        messageLoginText.text = "Password reset mail sent";
 
     }
 
     void OnError(PlayFabError error)
     {
-        messageText.text = error.ErrorMessage;
+        messageLoginText.text = error.ErrorMessage;
         Debug.Log(error.GenerateErrorReport());
     }
 
@@ -127,10 +142,10 @@ public class PlayFabManager : MonoBehaviour
             GameObject newGo = Instantiate(rowPrefab, rowsParent);
             Text[] texts = newGo.GetComponentsInChildren<Text>();
             texts[0].text = (item.Position + 1).ToString();
-            texts[1].text = item.PlayFabId;
+            texts[1].text = item.DisplayName;
             texts[2].text = item.StatValue.ToString();
 
-            Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
+            //Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
     }
 
