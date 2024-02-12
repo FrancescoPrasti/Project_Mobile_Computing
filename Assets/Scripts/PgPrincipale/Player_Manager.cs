@@ -19,12 +19,21 @@ public class PlayerManager : MonoBehaviour
     public GameObject[] playerPrefabs;
     int characterIndex;
 
+    //private bool startPos = false;
 
     public new Vector3 posIniziale;
     private void Awake()
     {
         characterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
-        GameObject player = Instantiate(playerPrefabs[characterIndex], posIniziale, Quaternion.identity);
+        GameObject player;
+        player = Instantiate(playerPrefabs[characterIndex], posIniziale, Quaternion.identity);
+        /*if (startPos == false)
+        {
+            player = Instantiate(playerPrefabs[characterIndex], new Vector3(-12.04f, -3.82f, 0), Quaternion.identity);
+            startPos = true;
+        }
+        else
+            player = Instantiate(playerPrefabs[characterIndex], posIniziale, Quaternion.identity);*/
         VCam.m_Follow = player.transform;
 
         CoinNumber = PlayerPrefs.GetInt("CoinNumber", 0);  // se non esiste la variabile CoinNumber la crea e la inizializza a zero
@@ -50,6 +59,8 @@ public class PlayerManager : MonoBehaviour
     public void ReplayLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        HealthManager.cuoriColorati = 3;
+        ManaManager.manaColorati = 3;
     }
 
     public void PauseGame()
@@ -66,7 +77,8 @@ public class PlayerManager : MonoBehaviour
 
     public void GoToMenu()
     {
-        AudioManager.instance.Stop("VillageMusic");
+        Debug.Log("daje roma");
+        //AudioManager.instance.Stop("VillageMusic");
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1;
     }

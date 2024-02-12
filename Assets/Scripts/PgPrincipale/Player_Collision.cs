@@ -33,6 +33,7 @@ public class PlayerCollision : MonoBehaviour
     public void TakeDamage()
     {
         HealthManager.health--;
+        HealthManager.cuoriColorati--;
         //HealthManager.health = 0;
         if (HealthManager.health <= 0)
         {

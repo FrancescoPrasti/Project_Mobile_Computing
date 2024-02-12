@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class HealthManager : MonoBehaviour
 {
 
-    public static int health = 3;
+    public static int health;
+    public static int cuoriColorati = 1;
     public Image[] cuori;
 
     public Sprite cuorePieno;
@@ -14,14 +15,16 @@ public class HealthManager : MonoBehaviour
 
      void Awake()
     {
-        health = 3;
+        health = 1;
+        if (cuoriColorati < 3)
+            health = cuoriColorati;
     }
 
 
 
     void FixedUpdate()
     {
-        foreach(Image img in cuori)
+        foreach (Image img in cuori)
         {
             img.sprite = cuoreVuoto;
         }
