@@ -26,6 +26,7 @@ public class PlayerShoot : MonoBehaviour
             //animator.SetTrigger("shoot");
             GameObject go = Instantiate(fireBall, fireBallHole.position, fireBall.transform.rotation);
             ManaManager.mana--;
+            ManaManager.manaColorati--;
 
             if (GetComponent<PlayerMovement>().right)
             {
