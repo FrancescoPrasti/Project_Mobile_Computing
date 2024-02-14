@@ -7,13 +7,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Variabili movimento orizzontale
-    private PlayerControls controls;
+    public PlayerControls controls;
     public Rigidbody2D player;
     private float direction = 0;
     public float speed = 400;
 
     // Variabili salto
-    private float salto = 5;
+    public float salto = 5;
     bool aTerra;
     public Transform groundCheck;
     public LayerMask groundLayer;
@@ -21,7 +21,9 @@ public class PlayerMovement : MonoBehaviour
     // Variabili animazioni
     public Animator animator;
     public bool right = true;
-   
+
+    
+
 
     private void Awake()
     {
@@ -39,17 +41,24 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        aTerra = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
-        animator.SetBool("aTerra", aTerra);
-
-        player.velocity = new Vector2(direction * speed * Time.fixedDeltaTime, player.velocity.y);
-        animator.SetFloat("speed", Mathf.Abs(direction));
-
-        if(right && direction < 0 || !right && direction > 0)
-        {
-            Inverti();
+        if(PlayerManager.isGameOver == true && aTerra == true){
+            controls.Disable();
+            Destroy(GetComponent<Rigidbody2D>());
         }
+        else if(PlayerManager.isGameOver == true)
+            controls.Disable();
+        else{
+            aTerra = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+            animator.SetBool("aTerra", aTerra);
 
+            player.velocity = new Vector2(direction * speed * Time.fixedDeltaTime, player.velocity.y);
+            animator.SetFloat("speed", Mathf.Abs(direction));
+
+            if(right && direction < 0 || !right && direction > 0)
+            {
+                Inverti();
+            }
+        }
     }
 
     void Inverti()

@@ -24,6 +24,7 @@ public class CoinAbitanti : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             PlayerManager.CoinNumber++;
+            PlayerPrefs.SetInt("CoinNumber", PlayerManager.CoinNumber);
             Destroy(gameObject);
         }
     }

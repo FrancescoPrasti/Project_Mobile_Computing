@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class PlayerCollision : MonoBehaviour
 {
     public bool isInvincible=false;
+    public Animator animator;
     // Start is called before the first frame update
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -32,11 +33,13 @@ public class PlayerCollision : MonoBehaviour
     public void TakeDamage()
     {
         HealthManager.health--;
+        HealthManager.cuoriColorati--;
+        //HealthManager.health = 0;
         if (HealthManager.health <= 0)
         {
+            animator.SetTrigger("Death");
             PlayerManager.isGameOver = true;
             AudioManager.instance.Stop("VillageMusic");
-            gameObject.SetActive(false);
         }
         else
         {

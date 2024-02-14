@@ -7,6 +7,7 @@ public class ManaManager : MonoBehaviour
 {
     public static int mana;
     public Image[] manaV;
+    public static int manaColorati = 3;
 
     public Sprite manaPieno;
     public Sprite manaVuoto;
@@ -14,6 +15,8 @@ public class ManaManager : MonoBehaviour
     void Awake()
     {
         mana = 3;
+        if (manaColorati < 3)
+            mana = manaColorati;
     }
 
     void FixedUpdate()
