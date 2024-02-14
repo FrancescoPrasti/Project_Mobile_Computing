@@ -58,7 +58,8 @@ public class PlayerManager : MonoBehaviour
 
     public void ReplayLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(1);
         HealthManager.cuoriColorati = 3;
         ManaManager.manaColorati = 3;
     }
@@ -77,7 +78,7 @@ public class PlayerManager : MonoBehaviour
 
     public void GoToMenu()
     {
-        Debug.Log("daje roma");
+       
         //AudioManager.instance.Stop("VillageMusic");
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1;

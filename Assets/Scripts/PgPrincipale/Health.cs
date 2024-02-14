@@ -7,7 +7,7 @@ public class HealthManager : MonoBehaviour
 {
 
     public static int health;
-    public static int cuoriColorati = 1;
+    public static int cuoriColorati = 3;
     public Image[] cuori;
 
     public Sprite cuorePieno;
@@ -15,7 +15,7 @@ public class HealthManager : MonoBehaviour
 
      void Awake()
     {
-        health = 1;
+        health = 3;
         if (cuoriColorati < 3)
             health = cuoriColorati;
     }

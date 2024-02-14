@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,13 +11,16 @@ public class SceneTransition : MonoBehaviour
     public string sceneToLoad;
     public Button TransitionButton;
 
-    public new Vector3 posRitorno;
-    private GameObject player;
-    public PlayerManager playerManager;
+    //public new Vector3 posRitorno;
+   // private GameObject player;
+    //public PlayerManager playerManager;
 
+    
     void Start()
     {
         fade = FindObjectOfType<FadeInOut>();
+        
+
     }
 
     public IEnumerator ChangeScene()
@@ -32,7 +36,8 @@ public class SceneTransition : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            player = collision.gameObject;
+            
+            //player = collision.gameObject;
            TransitionButton.gameObject.SetActive(true);
 
         }
@@ -41,7 +46,7 @@ public class SceneTransition : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            player = collision.gameObject;
+            //player = collision.gameObject;
             TransitionButton.gameObject.SetActive(false);
 
         }
@@ -50,6 +55,10 @@ public class SceneTransition : MonoBehaviour
     public void Transizione()
     {
         StartCoroutine(ChangeScene());
+        
+       
+        
+        
 
     }
 }

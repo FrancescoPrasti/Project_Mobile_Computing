@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
 
     
 
-
     private void Awake()
     {
         controls = new PlayerControls();
