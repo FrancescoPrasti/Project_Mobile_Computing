@@ -5,11 +5,15 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerManager : MonoBehaviour
 {
     public static int CoinNumber;
     public TextMeshProUGUI CoinText;
+
+    public PlayFabManager playFabManager;
+    public static int Score;
 
     public static bool isGameOver;
     public GameObject GameOverScreen;
@@ -39,6 +43,7 @@ public class PlayerManager : MonoBehaviour
         CoinNumber = PlayerPrefs.GetInt("CoinNumber", 0);  // se non esiste la variabile CoinNumber la crea e la inizializza a zero
         isGameOver = false;
         //CoinNumber = 0;
+        Score = 0;
     }
 
     void Start()
@@ -52,6 +57,8 @@ public class PlayerManager : MonoBehaviour
         if (isGameOver)
         {
             GameOverScreen.SetActive(true);
+            playFabManager.SendLeaderboard(Score);
+            Time.timeScale = 0;
         }
         CoinText.text = CoinNumber.ToString();
     }
@@ -83,4 +90,5 @@ public class PlayerManager : MonoBehaviour
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1;
     }
+
 }
