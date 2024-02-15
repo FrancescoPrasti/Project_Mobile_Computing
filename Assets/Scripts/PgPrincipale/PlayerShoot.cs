@@ -19,6 +19,13 @@ public class PlayerShoot : MonoBehaviour
         controls.Terreno.Shoot.performed += ctx => animator.SetTrigger("shoot");
     }
 
+    void FixedUpdate()
+    {
+        if(PlayerManager.isGameOver == true){
+            controls.Disable();
+        }
+    }
+
     void Fire()
     {
         if (ManaManager.mana != 0)
@@ -40,5 +47,15 @@ public class PlayerShoot : MonoBehaviour
             }
             Destroy(go, 1.5f);
         }
+    }
+
+    public void inizioFire()
+    {
+        controls.Disable();
+    }
+
+    public void fineFire()
+    {
+        controls.Enable();
     }
 }

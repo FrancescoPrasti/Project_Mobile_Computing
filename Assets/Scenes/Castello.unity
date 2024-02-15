@@ -3193,7 +3193,7 @@ Transform:
   m_GameObject: {fileID: 1046290318}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.62, y: 1.84, z: 2.974337}
+  m_LocalPosition: {x: -3.81, y: 1.84, z: 2.974337}
   m_LocalScale: {x: 1, y: 7.4937496, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3337,7 +3337,7 @@ Transform:
   m_GameObject: {fileID: 1210353910}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.16, y: 1.84, z: 2.974337}
+  m_LocalPosition: {x: 2.37, y: 1.84, z: 2.974337}
   m_LocalScale: {x: 1, y: 7.4937496, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3453,6 +3453,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghost: {fileID: 6581694262301905425, guid: 6f98f7151c5d0274e8e892aae34a457d, type: 3}
+--- !u!1 &1329260452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1329260454}
+  - component: {fileID: 1329260453}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1329260453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329260452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daa1dde45a25114abab91e15aee9dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: VillageMusic
+    clip: {fileID: 8300000, guid: 40fab7d063db5fe43995d84744c89c1f, type: 3}
+    mixer: {fileID: 24300002, guid: f8a6a39a51dc48a4fa1c4e86803b32e5, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 17859842369a1134ca10d2a349ab65af, type: 3}
+    mixer: {fileID: 24300002, guid: f8a6a39a51dc48a4fa1c4e86803b32e5, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &1329260454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329260452}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1332025261
 GameObject:
   m_ObjectHideFlags: 0
@@ -3572,7 +3631,6 @@ MonoBehaviour:
   sceneToLoad: Stanza2
   TransitionButton: {fileID: 598464574}
   posRitorno: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
   playerManager: {fileID: 0}
 --- !u!61 &1348275347
 BoxCollider2D:
@@ -4387,7 +4445,6 @@ MonoBehaviour:
   sceneToLoad: Stanza2
   TransitionButton: {fileID: 598464574}
   posRitorno: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
   playerManager: {fileID: 0}
 --- !u!4 &1453266257
 Transform:
@@ -4566,7 +4623,6 @@ MonoBehaviour:
   sceneToLoad: Stanza1
   TransitionButton: {fileID: 66638065}
   posRitorno: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
   playerManager: {fileID: 0}
 --- !u!4 &1522555515
 Transform:
@@ -5706,7 +5762,6 @@ MonoBehaviour:
   sceneToLoad: SampleScene
   TransitionButton: {fileID: 662835485}
   posRitorno: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
   playerManager: {fileID: 0}
 --- !u!1 &1629291882
 GameObject:
@@ -6221,7 +6276,6 @@ MonoBehaviour:
   sceneToLoad: Stanza1
   TransitionButton: {fileID: 66638065}
   posRitorno: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
   playerManager: {fileID: 0}
 --- !u!61 &1819303025
 BoxCollider2D:
@@ -6788,7 +6842,6 @@ MonoBehaviour:
   sceneToLoad: SampleScene
   TransitionButton: {fileID: 662835485}
   posRitorno: {x: 38.4, y: -0.03, z: 0}
-  player: {fileID: 0}
   playerManager: {fileID: 1388945144}
 --- !u!1 &1910363852
 GameObject:
@@ -7022,3 +7075,4 @@ SceneRoots:
   - {fileID: 127671513}
   - {fileID: 1683504453}
   - {fileID: 1762413788}
+  - {fileID: 1329260454}

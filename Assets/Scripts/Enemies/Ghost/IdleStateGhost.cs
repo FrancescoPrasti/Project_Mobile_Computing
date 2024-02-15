@@ -16,7 +16,7 @@ public class IdleStateGhost : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         float distance = Vector2.Distance(target.position, animator.transform.position);
-        if(distance < 1 && HealthManager.health > 0)
+        if(distance < 1.5f && HealthManager.health > 0)
             animator.SetBool("attack", true);
     }
 

@@ -84,4 +84,12 @@ public class Ghost : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Player")
+        {
+           collision.GetComponent<PlayerCollision>().TakeDamage();
+        }
+    }
+
 }

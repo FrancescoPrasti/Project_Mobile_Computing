@@ -78,7 +78,7 @@ public class PlayerManager : MonoBehaviour
     public void GoToMenu()
     {
         Debug.Log("daje roma");
-        //AudioManager.instance.Stop("VillageMusic");
+        AudioManager.instance.Stop("VillageMusic");
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1;
     }

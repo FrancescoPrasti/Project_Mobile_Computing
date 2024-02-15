@@ -16,6 +16,11 @@ public class FireBall : MonoBehaviour
             collision.GetComponent<Ghost>().TakeDamage(50);
             Destroy(gameObject);
         }
+        else if(collision.tag == "BringerOfDeath")
+        {
+            collision.GetComponent<BringerOfDeath>().TakeDamage(50);
+            Destroy(gameObject);
+        }
            
     }
 }

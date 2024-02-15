@@ -25,6 +25,13 @@ public class AttaccoPlayer : MonoBehaviour
         };
     }
 
+    void FixedUpdate()
+    {
+        if(PlayerManager.isGameOver == true){
+            controls.Disable();
+        }
+    }
+
     private void meleeAttack()
     {
 
@@ -37,6 +44,8 @@ public class AttaccoPlayer : MonoBehaviour
                     enemiesInRange[i].GetComponent<Scheletro>().TakeDamage(25);
                 else if(enemiesInRange[i].tag == "Ghost")
                     enemiesInRange[i].GetComponent<Ghost>().TakeDamage(25);
+                else if(enemiesInRange[i].tag == "BringerOfDeath")
+                    enemiesInRange[i].GetComponent<BringerOfDeath>().TakeDamage(25);
             }
         }
 
