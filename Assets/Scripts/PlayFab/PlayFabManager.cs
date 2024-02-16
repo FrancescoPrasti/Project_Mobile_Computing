@@ -20,9 +20,16 @@ public class PlayFabManager : MonoBehaviour
     public GameObject levelsMenu;
     public GameObject loginPanel;
 
+    public static bool isLogged = false;
+
     public GameObject rowPrefab;
     public Transform rowsParent;
-    
+
+    private void Start()
+    {
+   
+    }
+
     public void RegisterButton()
     {
         if (passwordRegistrationInput.text.Length < 6)
@@ -68,6 +75,7 @@ public class PlayFabManager : MonoBehaviour
 
     void OnLoginSuccess(LoginResult result)
     {
+        isLogged = true;
         messageLoginText.text = "Logged in!";
         Debug.Log("Successful login!");
         levelsMenu.SetActive(true);
