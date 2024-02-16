@@ -21,6 +21,10 @@ public class FireBall : MonoBehaviour
             collision.GetComponent<BringerOfDeath>().TakeDamage(50);
             Destroy(gameObject);
         }
-           
+        else if(collision.tag == "FlyingEye")
+        {
+            collision.GetComponent<Eye>().TakeDamage(50);
+            Destroy(gameObject);
+        }  
     }
 }

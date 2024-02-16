@@ -261,7 +261,7 @@ MonoBehaviour:
   attaccoCheck: {fileID: 2524443033246090124}
   attaccoLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   attackRange: 0.1
 --- !u!114 &3878623341874491651
 MonoBehaviour:

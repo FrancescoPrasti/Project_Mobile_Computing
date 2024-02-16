@@ -46,6 +46,11 @@ public class AttaccoPlayer : MonoBehaviour
                     enemiesInRange[i].GetComponent<Ghost>().TakeDamage(25);
                 else if(enemiesInRange[i].tag == "BringerOfDeath")
                     enemiesInRange[i].GetComponent<BringerOfDeath>().TakeDamage(25);
+                else if(enemiesInRange[i].tag == "FlyingEye")
+                {
+                    Debug.Log("Entra!");
+                    enemiesInRange[i].GetComponent<Eye>().TakeDamage(25);
+                }
             }
         }
 
