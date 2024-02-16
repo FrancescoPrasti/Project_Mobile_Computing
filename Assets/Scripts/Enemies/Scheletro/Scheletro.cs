@@ -58,10 +58,8 @@ public class Scheletro : MonoBehaviour
             ItemDrop();
             itemDropped = true;
         }
-        /*if(ManaManager.mana < 3)
-        {
-            ManaManager.mana++;
-        }*/
+
+        PlayerManager.Score += 50;
 
     }
 
