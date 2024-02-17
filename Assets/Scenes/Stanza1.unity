@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1407341456736849856, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c0d82b71d45a0a745b74ba573b360f8e, type: 3}
     - target: {fileID: 1474674082987148449, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -250,6 +254,10 @@ PrefabInstance:
     - target: {fileID: 1521661343064046993, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780493942894747059, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 3302410367789662173, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
       propertyPath: m_Name
@@ -303,6 +311,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5499258543203145034, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6112797237135140447, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -310,6 +322,10 @@ PrefabInstance:
     - target: {fileID: 6112797237135140447, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GoToMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6454500374546076956, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 6938866340724623897, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -326,6 +342,30 @@ PrefabInstance:
     - target: {fileID: 6938866340724623897, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672135881982782038, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+      propertyPath: m_fontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672135881982782038, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469601464646693322, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+      propertyPath: m_Text
+      value: '  RESTART'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469601464646693322, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: d1fe0bc1ac9782f4c8f875e1a7cea6d7, type: 3}
+    - target: {fileID: 8469601464646693322, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469601464646693322, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8834766013750685247, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1748,6 +1788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoinText: {fileID: 135559019}
+  playFabManager: {fileID: 0}
   GameOverScreen: {fileID: 135559018}
   pauseMenuScreen: {fileID: 135559011}
   VCam: {fileID: 327670147}

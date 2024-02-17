@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject[] playerPrefabs;
     int characterIndex;
 
-    //private bool startPos = false;
+    
 
     public new Vector3 posIniziale;
     private void Awake()
@@ -48,7 +48,7 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        AudioManager.instance.Play("VillageMusic");
+        //AudioManager.instance.Play("VillageMusic");
     }
 
 

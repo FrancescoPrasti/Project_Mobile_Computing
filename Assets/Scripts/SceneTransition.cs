@@ -11,14 +11,11 @@ public class SceneTransition : MonoBehaviour
     public string sceneToLoad;
     public Button TransitionButton;
 
-    //public new Vector3 posRitorno;
-   // private GameObject player;
-    //public PlayerManager playerManager;
 
-    
     void Start()
     {
         fade = FindObjectOfType<FadeInOut>();
+
         
 
     }
@@ -27,18 +24,19 @@ public class SceneTransition : MonoBehaviour
     {
         fade.FadeIn();
         yield return new WaitForSeconds(1);
-        //playerManager.posIniziale = posRitorno;
-        //player.transform.position = posRitorno;
+       
         SceneManager.LoadScene(sceneToLoad);
         
+        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" )
         {
-            
-            //player = collision.gameObject;
+           
            TransitionButton.gameObject.SetActive(true);
+
 
         }
     }
@@ -46,7 +44,7 @@ public class SceneTransition : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            //player = collision.gameObject;
+           
             TransitionButton.gameObject.SetActive(false);
 
         }
@@ -54,6 +52,7 @@ public class SceneTransition : MonoBehaviour
 
     public void Transizione()
     {
+        
         StartCoroutine(ChangeScene());
         
        

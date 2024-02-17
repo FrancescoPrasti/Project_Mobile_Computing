@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public bool right = true;
 
+  
     
 
     private void Awake()
