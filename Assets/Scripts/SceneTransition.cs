@@ -17,7 +17,7 @@ public class SceneTransition : MonoBehaviour
         fade = FindObjectOfType<FadeInOut>();
 
         
-
+        
     }
 
     public IEnumerator ChangeScene()

@@ -57,7 +57,7 @@ public class PlayerManager : MonoBehaviour
         if (isGameOver)
         {
             GameOverScreen.SetActive(true);
-            playFabManager.SendLeaderboard(Score);
+            //playFabManager.SendLeaderboard(Score);
             Time.timeScale = 0;
         }
         CoinText.text = CoinNumber.ToString();
@@ -69,6 +69,7 @@ public class PlayerManager : MonoBehaviour
         SceneManager.LoadScene(1);
         HealthManager.cuoriColorati = 3;
         ManaManager.manaColorati = 3;
+        Time.timeScale = 1;
     }
 
     public void PauseGame()
