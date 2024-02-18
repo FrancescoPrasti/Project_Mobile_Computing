@@ -25,6 +25,11 @@ public class FireBall : MonoBehaviour
         {
             collision.GetComponent<Eye>().TakeDamage(50);
             Destroy(gameObject);
-        }  
+        }
+        else if(collision.tag == "Demon")
+        {
+            collision.GetComponent<Demon>().TakeDamage(50);
+            Destroy(gameObject);
+        } 
     }
 }

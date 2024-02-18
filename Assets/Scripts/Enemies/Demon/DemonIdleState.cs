@@ -15,9 +15,7 @@ public class DemonIdleState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        float distance = Vector2.Distance(target.position, animator.transform.position);
-        if(distance <= 5f && HealthManager.health > 0)
-            animator.SetBool("IsAttacking", true);
+        //yield return new WaitForSeconds(3);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

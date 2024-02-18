@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PlayerManager : MonoBehaviour
     public static bool isGameOver;
     public GameObject GameOverScreen;
     public GameObject pauseMenuScreen;
+    public Button pauseButton;
 
     public CinemachineVirtualCamera VCam;
     public GameObject[] playerPrefabs;
@@ -56,6 +58,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (isGameOver)
         {
+            pauseButton.interactable = false;
             GameOverScreen.SetActive(true);
             playFabManager.SendLeaderboard(Score);
             Time.timeScale = 0;
@@ -84,7 +87,6 @@ public class PlayerManager : MonoBehaviour
 
     public void GoToMenu()
     {
-        Debug.Log("daje roma");
         AudioManager.instance.Stop("VillageMusic");
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1;

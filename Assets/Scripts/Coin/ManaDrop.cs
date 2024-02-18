@@ -24,6 +24,7 @@ public class ManaDrop : MonoBehaviour
         {
             if (ManaManager.mana < 3)
             {
+                AudioManager.instance.Play("Charge");
                 ManaManager.mana++;
                 Destroy(gameObject);
             }

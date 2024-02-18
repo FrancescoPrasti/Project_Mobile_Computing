@@ -34,6 +34,7 @@ public class PlayerShoot : MonoBehaviour
             GameObject go = Instantiate(fireBall, fireBallHole.position, fireBall.transform.rotation);
             ManaManager.mana--;
             ManaManager.manaColorati--;
+            AudioManager.instance.Play("FireExplosion");
 
             if (GetComponent<PlayerMovement>().right)
             {

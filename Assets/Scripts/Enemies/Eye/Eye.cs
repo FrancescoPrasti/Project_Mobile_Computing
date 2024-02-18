@@ -16,6 +16,7 @@ public class Eye : MonoBehaviour
     public float range = 3;
     float startingX;
     int dir = 1;
+    bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +57,12 @@ public class Eye : MonoBehaviour
         else if(enemyHP <= 0)
         {
             animator.SetTrigger("Death");
+            GetComponent<CircleCollider2D>().enabled = false;
+            /*if(isDead == false)
+            {
+                animator.SetTrigger("Death");
+                isDead = true;
+            }*/
         }
     }
 

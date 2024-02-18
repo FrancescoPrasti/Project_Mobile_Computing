@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (aTerra)
         {
+            AudioManager.instance.Play("Jump");
             player.velocity = new Vector2(player.velocity.x, salto);
         }
 

@@ -47,10 +47,9 @@ public class AttaccoPlayer : MonoBehaviour
                 else if(enemiesInRange[i].tag == "BringerOfDeath")
                     enemiesInRange[i].GetComponent<BringerOfDeath>().TakeDamage(25);
                 else if(enemiesInRange[i].tag == "FlyingEye")
-                {
-                    Debug.Log("Entra!");
                     enemiesInRange[i].GetComponent<Eye>().TakeDamage(25);
-                }
+                else if(enemiesInRange[i].tag == "Demon")
+                    enemiesInRange[i].GetComponent<Demon>().TakeDamage(25);
             }
         }
 
@@ -59,6 +58,8 @@ public class AttaccoPlayer : MonoBehaviour
     public void inizioAttacco()
     {
         //this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 0.5f);
+        if(PlayerPrefs.GetInt("SelectedCharacter", 0) == 0)
+            AudioManager.instance.Play("SwordAttack");
         isAttacking = true;
         controls.Disable();
     }
