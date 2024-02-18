@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CoinAbitanti : MonoBehaviour
 {
+
     private Rigidbody2D itemRb;
     public float dropForce = 5;
     void Start()
@@ -23,8 +24,9 @@ public class CoinAbitanti : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-            PlayerManager.CoinNumber++;
-            PlayerPrefs.SetInt("CoinNumber", PlayerManager.CoinNumber);
+            /*PlayerManager.CoinNumber++;
+            PlayerPrefs.SetInt("CoinNumber", PlayerManager.CoinNumber);*/
+            PlayFabManager.instance.AddVirtualCurrency();
             Destroy(gameObject);
         }
     }

@@ -5,9 +5,12 @@ using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.UI;
 using System;
+using Newtonsoft.Json;
 
 public class PlayFabManager : MonoBehaviour
 {
+
+    public static PlayFabManager instance;
 
     [Header("UI")]
     public Text messageLoginText;
@@ -24,10 +27,11 @@ public class PlayFabManager : MonoBehaviour
 
     public GameObject rowPrefab;
     public Transform rowsParent;
+    public CharacterSelect characterSelect;
 
-    private void Start()
+    private void Awake()
     {
-   
+        instance = this;
     }
 
     public void RegisterButton()
@@ -44,12 +48,7 @@ public class PlayFabManager : MonoBehaviour
             DisplayName = usernameField.text,
             RequireBothUsernameAndEmail = false
         };
-        /*var request2 = new UpdateUserTitleDisplayNameRequest
-        {
-            DisplayName = usernameField.text,
-        };*/
         PlayFabClientAPI.RegisterPlayFabUser(request1, OnRegisterSuccess, OnError);
-        //PlayFabClientAPI.UpdateUserTitleDisplayName(request2, OnDisplayNameUpdate, OnError);
     }
 
     void OnRegisterSuccess(RegisterPlayFabUserResult result)
@@ -80,6 +79,8 @@ public class PlayFabManager : MonoBehaviour
         Debug.Log("Successful login!");
         levelsMenu.SetActive(true);
         loginPanel.SetActive(false);
+        this.getVirtualCurrencies();
+        characterSelect.UpdateShop();
 
     }
 
@@ -157,4 +158,75 @@ public class PlayFabManager : MonoBehaviour
         }
     }
 
+    public void getVirtualCurrencies()
+    {
+        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), OnGetUserInventorySuccess, OnError);
+    }
+
+    void OnGetUserInventorySuccess(GetUserInventoryResult result)
+    {
+        PlayerManager.CoinNumber = result.VirtualCurrency["CN"];
+    }
+
+    public void AddVirtualCurrency()
+    {
+        var request = new AddUserVirtualCurrencyRequest
+        {
+            VirtualCurrency = "CN",
+            Amount = 1
+        };
+        PlayerManager.CoinNumber++;
+        PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddVirtualCurrencySuccess, OnError);
+    }
+
+    void OnAddVirtualCurrencySuccess(ModifyUserVirtualCurrencyResult result)
+    {
+        Debug.Log("Coin added!");
+    }
+
+
+    public void SaveShop()
+    {
+        List<Character> c = new List<Character>();
+        foreach(var item in characterSelect.characters)
+        {
+            
+            c.Add(item);
+           
+        }
+
+        var request = new UpdateUserDataRequest
+        {
+            Data = new Dictionary<string, string>
+            {
+                {"CharactersUnlocked", JsonConvert.SerializeObject(c)}
+            }
+        };
+        PlayFabClientAPI.UpdateUserData(request, OnDataSend, OnError);
+    }
+
+    void OnDataSend(UpdateUserDataResult result)
+    {
+
+    }
+
+
+    public void GetCharacters()
+    {
+        PlayFabClientAPI.GetUserData(new GetUserDataRequest(), OnCharactersDataRecieved, OnError);
+    }
+
+    void OnCharactersDataRecieved(GetUserDataResult result)
+    {
+        if(result.Data!=null && result.Data.ContainsKey("CharactersUnlocked"))
+        {
+            characterSelect.characters = JsonConvert.DeserializeObject<Character[]>(result.Data["CharactersUnlocked"].Value);
+
+        }
+        else
+        {
+            Character[] c = new Character[] {new Character("Fire Warrior",0,true), new Character("Wizard", 5, false) };
+            characterSelect.characters = c;
+        }
+    }
 }

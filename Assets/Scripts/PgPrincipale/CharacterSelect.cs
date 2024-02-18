@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using PlayFab.ClientModels;
+using PlayFab;
 
 public class CharacterSelect : MonoBehaviour
 {
@@ -13,32 +15,35 @@ public class CharacterSelect : MonoBehaviour
     public Button unlockButton;
     public TextMeshProUGUI coinText;
 
-    public void Awake()
+    public void UpdateShop()
     {
+
+        PlayFabManager.instance.GetCharacters();
+
         selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter", 0);
         foreach (GameObject player in skins)
             player.SetActive(false);
 
         skins[selectedCharacter].SetActive(true);
 
-        foreach (Character c in characters)
+        /*foreach (Character c in characters)
         {
-            if (c.price == 0)
+            //if (c.price == 0)
                 c.isUnlocked = true;
             else
             {
-                /*if(PlayerPrefs.GetInt(c.name, 0) == 0)
+                if(PlayerPrefs.GetInt(c.name, 0) == 0)
                 {
                     c.isUnlocked = false;
                 }
                 else
                 {
                     c.isUnlocked = true;
-                }*/
+                }
                 // Stessa cosa si può scrivere cosi' in maniera meno verbosa
-                c.isUnlocked = PlayerPrefs.GetInt(c.name, 0) == 0 ? false : true;
+                c.isUnlocked = false;PlayerPrefs.GetInt(c.name, 0) == 0 ? false : true;
             }
-        }
+        }*/
         UpdateUI();
     }
 
@@ -68,13 +73,21 @@ public class CharacterSelect : MonoBehaviour
 
     public void UpdateUI()
     {
-        coinText.text = "" + PlayerPrefs.GetInt("CoinNumber", 0);
+        Debug.Log(PlayerManager.CoinNumber);
+        coinText.text = PlayerManager.CoinNumber.ToString();
+        Debug.Log(PlayerManager.CoinNumber);
+        Debug.Log(characters[selectedCharacter].isUnlocked);
+
         if (characters[selectedCharacter].isUnlocked == true)
+        {
+            Debug.Log("DENTRO IF");
             unlockButton.gameObject.SetActive(false);
+        }
+
         else
         {
             unlockButton.GetComponentInChildren<TextMeshProUGUI>().text = "Price:" + characters[selectedCharacter].price;
-            if (PlayerPrefs.GetInt("CoinNumber", 0) < characters[selectedCharacter].price)
+            if (PlayerManager.CoinNumber < characters[selectedCharacter].price)
             {
                 unlockButton.gameObject.SetActive(true);
                 unlockButton.interactable = false;
@@ -87,14 +100,37 @@ public class CharacterSelect : MonoBehaviour
         }
     }
 
+    public void BuyItem(int price)
+    {
+        var request = new SubtractUserVirtualCurrencyRequest
+        {
+            VirtualCurrency = "CN",
+            Amount = price
+        };
+        PlayFabClientAPI.SubtractUserVirtualCurrency(request, OnSubtractCoinsSuccess, OnError);
+        PlayerManager.CoinNumber -= price;
+    }
+
+    void OnSubtractCoinsSuccess(ModifyUserVirtualCurrencyResult result)
+    {
+        PlayFabManager.instance.SaveShop();
+    }
+
     public void Unlock()
     {
         int coins = PlayerPrefs.GetInt("CoinNumber", 0);
         int price = characters[selectedCharacter].price;
-        PlayerPrefs.SetInt("CoinNumber", coins - price);
+        //PlayerPrefs.SetInt("CoinNumber", coins - price);
+        this.BuyItem(price);
         PlayerPrefs.SetInt(characters[selectedCharacter].name, 1);
         PlayerPrefs.SetInt("SelectedCharacter", selectedCharacter);
         characters[selectedCharacter].isUnlocked = true;
         UpdateUI();
     }
+
+    void OnError(PlayFabError error)
+    {
+        Debug.Log("Error: " + error.ErrorMessage);
+    }
+
 }

@@ -6006,6 +6006,7 @@ MonoBehaviour:
   loginPanel: {fileID: 516395328}
   rowPrefab: {fileID: 39709992979956362, guid: 2f2c2c4319a1a2a4db423f236e2878fd, type: 3}
   rowsParent: {fileID: 1758108263}
+  characterSelect: {fileID: 847148335}
 --- !u!114 &1432392540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6764,6 +6765,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 847148335}
+        m_TargetAssemblyTypeName: CharacterSelect, Assembly-CSharp
+        m_MethodName: UpdateShop
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
