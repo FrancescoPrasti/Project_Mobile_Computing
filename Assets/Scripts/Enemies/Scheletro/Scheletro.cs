@@ -11,7 +11,7 @@ public class Scheletro : MonoBehaviour
     public GameObject[] itemDrops;
     private bool itemDropped = false;
 
-
+    bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +36,8 @@ public class Scheletro : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         enemyHP -= damageAmount;
+        if(isDead == false)
+            AudioManager.instance.Play("EnemieDamage");
         if(enemyHP > 0)
         {
             animator.SetTrigger("Damage");
@@ -44,14 +46,14 @@ public class Scheletro : MonoBehaviour
         {
             animator.SetTrigger("Death");
             GetComponent<CapsuleCollider2D>().enabled = false;
+            isDead = true;
             this.enabled = false;
-            
         }
     }
 
     public void death()
     {
-        transform.position = new Vector2(transform.position.x, -4.45f);
+        //transform.position = new Vector2(transform.position.x, -4.45f);
 
         if (itemDropped == false)
         {
@@ -68,6 +70,7 @@ public class Scheletro : MonoBehaviour
 
         if (!target.GetComponent<PlayerCollision>().isInvincible)
         {
+            AudioManager.instance.Play("EnemieAttack");
             target.GetComponent<PlayerCollision>().TakeDamage();
         }
     }
@@ -78,6 +81,11 @@ public class Scheletro : MonoBehaviour
         {
             Instantiate(itemDrops[i], transform.position + new Vector3(0, 1, 0), Quaternion.identity);
         }
+    }
+
+    public void IdleChange()
+    {
+        animator.SetTrigger("Idle");
     }
 
 }

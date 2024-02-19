@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using UnityEditor;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
@@ -22,9 +24,6 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public bool right = true;
 
-    
-
-
     private void Awake()
     {
         controls = new PlayerControls();
@@ -44,12 +43,13 @@ public class PlayerMovement : MonoBehaviour
         if (DialogueManager.isActive == true) controls.Disable();
         else controls.Enable();
 
-        if(PlayerManager.isGameOver == true && aTerra == true){
+        /*if(PlayerManager.isGameOver == true && aTerra == true){
             controls.Disable();
             Destroy(GetComponent<Rigidbody2D>());
-        }
-        else if(PlayerManager.isGameOver == true)
+        }*/
+        if(PlayerManager.isGameOver == true){
             controls.Disable();
+        }
         else{
             aTerra = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
             animator.SetBool("aTerra", aTerra);
@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (aTerra)
         {
+            AudioManager.instance.Play("Jump");
             player.velocity = new Vector2(player.velocity.x, salto);
         }
 

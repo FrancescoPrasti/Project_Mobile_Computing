@@ -21,6 +21,11 @@ public class GhostActivation : MonoBehaviour
                 go = Instantiate(ghost, new Vector2(31.68f, -14.21f), ghost.transform.rotation);
             else if(this.tag == "Activation2")
                 go = Instantiate(ghost, new Vector2(50.9f, -14.21f), ghost.transform.rotation);
+            else if(this.tag == "Activation3")
+            {
+                go = Instantiate(ghost, new Vector2(33.4f, -3.32f), ghost.transform.rotation);
+                go.GetComponent<Ghost>().range = 4.5f;
+            }
 
             yield return new WaitForSeconds(0.5f);
             go.GetComponent<Animator>().SetBool("idle", true);
@@ -28,8 +33,8 @@ public class GhostActivation : MonoBehaviour
         else if(collision.transform.tag == "Player" && go.GetComponent<Animator>().GetBool("idle") == true)
         {
             go.GetComponent<Animator>().SetTrigger("vanish");
-            yield return new WaitForSeconds(0.7f);
-            Destroy(go);
+            /*yield return new WaitForSeconds(0.7f);
+            Destroy(go);*/
             go = null;
         }
         /*else if(collision.transform.tag == "Player" && go.GetComponent<Animator>().GetBool("idle") == false)

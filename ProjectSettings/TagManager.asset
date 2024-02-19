@@ -11,6 +11,13 @@ TagManager:
   - Ghost
   - Activation1
   - Activation2
+  - BringerOfDeath
+  - FlyingEye
+  - Terreno
+  - Activation3
+  - Demon
+  - ChestStanza1
+  - Necromancer
   layers:
   - Default
   - TransparentFX
@@ -21,7 +28,7 @@ TagManager:
   - Player
   - ground
   - Scheletro
-  - 
+  - Enemies
   - 
   - 
   - 

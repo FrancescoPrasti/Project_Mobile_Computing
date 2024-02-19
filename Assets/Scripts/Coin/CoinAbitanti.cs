@@ -14,11 +14,11 @@ public class CoinAbitanti : MonoBehaviour
         itemRb.AddForce(Vector2.up * dropForce, ForceMode2D.Impulse);
     }
 
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
         if(itemRb != null && itemRb.position.y <= -3.92f)
             Destroy(itemRb.GetComponent<Rigidbody2D>());
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -29,5 +29,7 @@ public class CoinAbitanti : MonoBehaviour
             PlayFabManager.instance.AddVirtualCurrency();
             Destroy(gameObject);
         }
+        else if(collision.tag == "Terreno")
+            Destroy(itemRb.GetComponent<Rigidbody2D>());
     }
 }

@@ -16,6 +16,25 @@ public class FireBall : MonoBehaviour
             collision.GetComponent<Ghost>().TakeDamage(50);
             Destroy(gameObject);
         }
-           
+        else if(collision.tag == "BringerOfDeath")
+        {
+            collision.GetComponent<BringerOfDeath>().TakeDamage(50);
+            Destroy(gameObject);
+        }
+        else if(collision.tag == "FlyingEye")
+        {
+            collision.GetComponent<Eye>().TakeDamage(50);
+            Destroy(gameObject);
+        }
+        else if(collision.tag == "Demon")
+        {
+            collision.GetComponent<Demon>().TakeDamage(50);
+            Destroy(gameObject);
+        }
+        else if(collision.tag == "Necromancer")
+        {
+            collision.GetComponent<Necromancer>().TakeDamage(50);
+            Destroy(gameObject);
+        }
     }
 }

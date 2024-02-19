@@ -30,11 +30,11 @@ public class Ghost : MonoBehaviour
     {
         if (target.transform.position.x > transform.position.x)
         {
-            transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y);
+            this.GetComponent<SpriteRenderer>().flipX = true;
         }
         else if(target.transform.position.x < transform.position.x)
         {
-            transform.localScale = new Vector2(-1*transform.localScale.x, transform.localScale.y);
+            this.GetComponent<SpriteRenderer>().flipX = false;
         }
         transform.Translate(Vector2.up * speed * Time.deltaTime * dir);
         if(transform.position.y < startingY || transform.position.y > startingY+range)
@@ -51,11 +51,14 @@ public class Ghost : MonoBehaviour
         else*/
         if(enemyHP <= 0)
         {
-            animator.SetTrigger("Vanish");
-            GetComponent<CapsuleCollider2D>().enabled = false;
-            this.enabled = false;
-            
+            animator.SetTrigger("vanish");
+            death();
         }
+    }
+
+    public void distruggi()
+    {
+        Destroy(this.gameObject);
     }
 
     public void death()
@@ -81,6 +84,14 @@ public class Ghost : MonoBehaviour
         for (int i = 0; i < itemDrops.Length; i++)
         {
             Instantiate(itemDrops[i], transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Player" && HealthManager.health > 0)
+        {
+           collision.GetComponent<PlayerCollision>().TakeDamage();
         }
     }
 

@@ -21,6 +21,7 @@ public class PlayerCollision : MonoBehaviour
     }
     IEnumerator GetHurt()
     {
+        AudioManager.instance.Play("Damage");
         Physics2D.IgnoreLayerCollision(6, 8);
         GetComponent<Animator>().SetLayerWeight(1, 1);
         isInvincible = true;

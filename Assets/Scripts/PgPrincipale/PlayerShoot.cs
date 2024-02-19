@@ -19,9 +19,11 @@ public class PlayerShoot : MonoBehaviour
         controls.Terreno.Shoot.performed += ctx => animator.SetTrigger("shoot");
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        //if (DialogueManager.isActive == true) return;
+        if(PlayerManager.isGameOver == true){
+            controls.Disable();
+        }
     }
 
     void Fire()
@@ -32,6 +34,7 @@ public class PlayerShoot : MonoBehaviour
             GameObject go = Instantiate(fireBall, fireBallHole.position, fireBall.transform.rotation);
             ManaManager.mana--;
             ManaManager.manaColorati--;
+            AudioManager.instance.Play("FireExplosion");
 
             if (GetComponent<PlayerMovement>().right)
             {
@@ -45,5 +48,15 @@ public class PlayerShoot : MonoBehaviour
             }
             Destroy(go, 1.5f);
         }
+    }
+
+    public void inizioFire()
+    {
+        controls.Disable();
+    }
+
+    public void fineFire()
+    {
+        controls.Enable();
     }
 }
