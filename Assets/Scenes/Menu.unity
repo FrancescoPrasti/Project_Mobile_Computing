@@ -3645,7 +3645,7 @@ MonoBehaviour:
   characters:
   - name: Fire Warrior
     price: 0
-    isUnlocked: 0
+    isUnlocked: 1
   - name: Wizard
     price: 5
     isUnlocked: 0

@@ -19,6 +19,11 @@ public class PlayerShoot : MonoBehaviour
         controls.Terreno.Shoot.performed += ctx => animator.SetTrigger("shoot");
     }
 
+    private void FixedUpdate()
+    {
+        //if (DialogueManager.isActive == true) return;
+    }
+
     void Fire()
     {
         if (ManaManager.mana != 0)

@@ -25,6 +25,11 @@ public class AttaccoPlayer : MonoBehaviour
         };
     }
 
+    private void FixedUpdate()
+    {
+        //if (DialogueManager.isActive == true) return;
+    }
+
     private void meleeAttack()
     {
 

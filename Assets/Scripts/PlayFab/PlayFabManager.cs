@@ -221,7 +221,6 @@ public class PlayFabManager : MonoBehaviour
         if(result.Data!=null && result.Data.ContainsKey("CharactersUnlocked"))
         {
             characterSelect.characters = JsonConvert.DeserializeObject<Character[]>(result.Data["CharactersUnlocked"].Value);
-
         }
         else
         {
