@@ -1845,8 +1845,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Castello
+  actualScene: Stanza2
   TransitionButton: {fileID: 1007403912}
-  posRitorno: {x: 0, y: 0, z: 0}
   playerManager: {fileID: 0}
 --- !u!4 &1229209752
 Transform:
@@ -2398,6 +2398,7 @@ MonoBehaviour:
   - {fileID: 769158389374727258, guid: b73c62ad17bd9bf458cd18ea15149478, type: 3}
   - {fileID: 544606774010591819, guid: 3b965008d43a0794295f9b7dca71982c, type: 3}
   posIniziale: {x: -9.48, y: -1.88, z: 0}
+  posAttuale: {x: 0, y: 0, z: 0}
 --- !u!114 &1432889221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3229,14 +3230,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762100129}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecd69da4b8ee75149b0693831af72060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Castello
+  actualScene: Stanza2
   TransitionButton: {fileID: 1007403912}
-  posRitorno: {x: 0, y: 0, z: 0}
   playerManager: {fileID: 0}
 --- !u!114 &1762100134
 MonoBehaviour:

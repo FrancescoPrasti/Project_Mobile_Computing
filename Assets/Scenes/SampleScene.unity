@@ -434,6 +434,7 @@ MonoBehaviour:
   - {fileID: 769158389374727258, guid: b73c62ad17bd9bf458cd18ea15149478, type: 3}
   - {fileID: 544606774010591819, guid: 3b965008d43a0794295f9b7dca71982c, type: 3}
   posIniziale: {x: -12.4, y: -3.760416, z: 0}
+  posAttuale: {x: 38.4, y: -0.03, z: 0}
 --- !u!114 &128181798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,6 +1087,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287586618}
   m_CullTransparentMesh: 1
+--- !u!1 &303057178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303057180}
+  - component: {fileID: 303057179}
+  m_Layer: 0
+  m_Name: CaricamentiScenaSampleScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &303057179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303057178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edc2d8ed9e496b4bab07111bedbecd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primoCaricamento: 1
+--- !u!4 &303057180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303057178}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.672855, y: 0.039841056, z: 1.402717}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339295305
 GameObject:
   m_ObjectHideFlags: 0
@@ -4113,9 +4159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Castello
+  actualScene: SampleScene
   TransitionButton: {fileID: 976122045}
-  posRitorno: {x: 0, y: 0, z: 0}
-  playerManager: {fileID: 0}
+  playerManager: {fileID: 128181797}
 --- !u!4 &1086031008
 Transform:
   m_ObjectHideFlags: 0
@@ -6560,15 +6606,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800505836}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecd69da4b8ee75149b0693831af72060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Castello
+  actualScene: SampleScene
   TransitionButton: {fileID: 976122045}
-  posRitorno: {x: 38.4, y: -0.03, z: 0}
-  playerManager: {fileID: 0}
+  playerManager: {fileID: 128181797}
 --- !u!61 &1800505840
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7257,6 +7303,7 @@ MonoBehaviour:
   Skeleton: {fileID: 1207128864129129235, guid: dccecd8caa688a24584b69351c311db3, type: 3}
   FireSkullHole: {fileID: 790007065}
   force: 200
+  wall: {fileID: 0}
 --- !u!1 &1993315783
 GameObject:
   m_ObjectHideFlags: 0
@@ -8476,3 +8523,4 @@ SceneRoots:
   - {fileID: 1144888499}
   - {fileID: 1731683809}
   - {fileID: 1970470806}
+  - {fileID: 303057180}
