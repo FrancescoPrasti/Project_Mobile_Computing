@@ -40,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (DialogueManager.isActive == true) controls.Disable();
+        else controls.Enable();
+
         /*if(PlayerManager.isGameOver == true && aTerra == true){
             controls.Disable();
             Destroy(GetComponent<Rigidbody2D>());

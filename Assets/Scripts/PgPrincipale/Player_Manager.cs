@@ -13,7 +13,6 @@ public class PlayerManager : MonoBehaviour
     public static int CoinNumber;
     public TextMeshProUGUI CoinText;
 
-    public PlayFabManager playFabManager;
     public static int Score;
 
     public static bool isGameOver;
@@ -61,8 +60,9 @@ public class PlayerManager : MonoBehaviour
             player = Instantiate(playerPrefabs[characterIndex], posIniziale, Quaternion.identity);*/
         VCam.m_Follow = player.transform;
 
-        CoinNumber = PlayerPrefs.GetInt("CoinNumber", 0);  // se non esiste la variabile CoinNumber la crea e la inizializza a zero
+        //CoinNumber = PlayerPrefs.GetInt("CoinNumber", 0);  // se non esiste la variabile CoinNumber la crea e la inizializza a zero
         isGameOver = false;
+        //playFabManager.getVirtualCurrencies();
         //CoinNumber = 0;
         Score = 0;
     }
@@ -79,7 +79,7 @@ public class PlayerManager : MonoBehaviour
         {
             pauseButton.interactable = false;
             GameOverScreen.SetActive(true);
-            playFabManager.SendLeaderboard(Score);
+            PlayFabManager.instance.SendLeaderboard(Score);
             Time.timeScale = 0;
         }
         CoinText.text = CoinNumber.ToString();
@@ -87,6 +87,7 @@ public class PlayerManager : MonoBehaviour
 
     public void ReplayLevel()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         HealthManager.cuoriColorati = 3;
         ManaManager.manaColorati = 3;
