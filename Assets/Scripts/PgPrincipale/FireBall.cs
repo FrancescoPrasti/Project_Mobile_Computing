@@ -30,6 +30,11 @@ public class FireBall : MonoBehaviour
         {
             collision.GetComponent<Demon>().TakeDamage(50);
             Destroy(gameObject);
-        } 
+        }
+        else if(collision.tag == "Necromancer")
+        {
+            collision.GetComponent<Necromancer>().TakeDamage(50);
+            Destroy(gameObject);
+        }
     }
 }

@@ -17,6 +17,7 @@ TagManager:
   - Activation3
   - Demon
   - ChestStanza1
+  - Necromancer
   layers:
   - Default
   - TransparentFX

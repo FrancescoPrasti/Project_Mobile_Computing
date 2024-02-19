@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using UnityEditor;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
@@ -21,9 +23,6 @@ public class PlayerMovement : MonoBehaviour
     // Variabili animazioni
     public Animator animator;
     public bool right = true;
-
-    
-
 
     private void Awake()
     {

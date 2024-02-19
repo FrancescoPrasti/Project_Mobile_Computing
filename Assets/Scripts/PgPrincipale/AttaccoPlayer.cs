@@ -50,6 +50,8 @@ public class AttaccoPlayer : MonoBehaviour
                     enemiesInRange[i].GetComponent<Eye>().TakeDamage(25);
                 else if(enemiesInRange[i].tag == "Demon")
                     enemiesInRange[i].GetComponent<Demon>().TakeDamage(25);
+                else if(enemiesInRange[i].tag == "Necromancer")
+                    enemiesInRange[i].GetComponent<Necromancer>().TakeDamage(25);
             }
         }
 

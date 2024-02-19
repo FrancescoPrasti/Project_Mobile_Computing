@@ -83,4 +83,9 @@ public class Scheletro : MonoBehaviour
         }
     }
 
+    public void IdleChange()
+    {
+        animator.SetTrigger("Idle");
+    }
+
 }
