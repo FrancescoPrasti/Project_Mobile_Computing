@@ -58,12 +58,13 @@ public class Eye : MonoBehaviour
         else if(enemyHP <= 0)
         {
             animator.SetTrigger("Death");
-            GetComponent<CircleCollider2D>().enabled = false;
+            //GetComponent<CircleCollider2D>().enabled = false;
             /*if(isDead == false)
             {
                 animator.SetTrigger("Death");
                 isDead = true;
             }*/
+            PlayerManager.Score += 50;
         }
     }
 

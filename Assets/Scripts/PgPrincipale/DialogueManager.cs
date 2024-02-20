@@ -10,9 +10,12 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public Image actorImage;
+    public Image actorImage1;
+    public Image actorImage2;
     public Text actorName;
     public Text messageText;
     public RectTransform backgroundBox;
+    public GameObject victoryPanel;
 
     Message[] currentMessages;
     Actor[] currentActors;
@@ -41,8 +44,27 @@ public class DialogueManager : MonoBehaviour
         //messageText.text = messageToDisplay.message;
 
         Actor actorToDisplay = currentActors[messageToDisplay.actorId];
-        actorName.text = actorToDisplay.name;
-        actorImage.sprite = actorToDisplay.sprite;
+
+
+        if (PlayerPrefs.GetInt("SelectedCharacter", 0) == 0)
+        {
+            actorImage1.gameObject.SetActive(true);
+            actorName.text = "Fire Warrior";
+            actorImage = actorImage1;
+            actorImage2.gameObject.SetActive(false);
+        }
+        else if (PlayerPrefs.GetInt("SelectedCharacter", 0) == 1)
+        {
+            actorImage2.gameObject.SetActive(true);
+            actorName.text = "Wizard";
+            actorImage = actorImage2;
+            actorImage1.gameObject.SetActive(false);
+        }
+
+
+        /*actorName.text = actorToDisplay.name;
+        actorImage.sprite = actorToDisplay.sprite;*/
+
     }
 
     public void NextMessage()
@@ -60,6 +82,11 @@ public class DialogueManager : MonoBehaviour
             this.gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().enabled = true;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
+
+            if (finale)
+            {
+                victoryPanel.SetActive(true);
+            }
 
         }
     }

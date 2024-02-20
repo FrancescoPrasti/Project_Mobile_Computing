@@ -13,6 +13,8 @@ public class DialogoPreFinale : MonoBehaviour
     {
         if (primoUtilizzo)
         {
+            AudioManager.instance.Stop("VillageMusic");
+            AudioManager.instance.Play("BossFight");
             GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().enabled = false;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;

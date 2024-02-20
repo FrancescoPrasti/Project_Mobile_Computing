@@ -36,5 +36,10 @@ public class FireBall : MonoBehaviour
             collision.GetComponent<Necromancer>().TakeDamage(50);
             Destroy(gameObject);
         }
+        else if(collision.tag == "ScheletroTutorial")
+        {
+            collision.GetComponent<EvocazioneScheletroTutorial>().TakeDamage(50);
+            Destroy(gameObject);
+        }
     }
 }

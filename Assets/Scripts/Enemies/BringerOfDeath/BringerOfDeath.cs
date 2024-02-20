@@ -26,11 +26,11 @@ public class BringerOfDeath : MonoBehaviour
     {
         if (target.transform.position.x > transform.position.x)
         {
-            transform.localScale = new Vector2(-3.75f,3.75f);
+            this.GetComponent<SpriteRenderer>().flipX = true;
         }
         else
         {
-            transform.localScale = new Vector2(3.75f,3.75f);
+            this.GetComponent<SpriteRenderer>().flipX = false;
         }
     }*/
 
@@ -47,6 +47,7 @@ public class BringerOfDeath : MonoBehaviour
             animator.SetTrigger("Death");
             GetComponent<CapsuleCollider2D>().enabled = false;
             this.enabled = false;
+            PlayerManager.Score += 500;
             
         }
     }

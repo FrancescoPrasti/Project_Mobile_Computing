@@ -57,9 +57,14 @@ public class Necromancer : MonoBehaviour
         }
         else
         {
+            AudioManager.instance.Play("NecromancerDeath");
+            AudioManager.instance.Stop("BossFight");
+            AudioManager.instance.Play("Victory");
             animator.SetTrigger("Death");
             GetComponent<CapsuleCollider2D>().enabled = false;
             this.enabled = false;
+            PlayerManager.Score += 1000;
+            PlayFabManager.instance.SendLeaderboard(PlayerManager.Score);
         }
     }
 
@@ -91,7 +96,7 @@ public class Necromancer : MonoBehaviour
         }
     }
 
-    public void Fire()
+    public void FireN()
     {
         AudioManager.instance.Play("NecromancerShoot");
         GameObject go = Instantiate(FireSkull, FireSkullHole.position, FireSkull.transform.rotation);
@@ -105,6 +110,9 @@ public class Necromancer : MonoBehaviour
             //this.GetComponent<SpriteRenderer>().flipX = false;
             go.GetComponent<Rigidbody2D>().AddForce(Vector2.right * force);
         }
+
+        //go.GetComponent<Rigidbody2D>().AddForce(Vector2.left * force);
+
         Destroy(go, 5f);
     }
 
@@ -125,5 +133,10 @@ public class Necromancer : MonoBehaviour
         animator.SetBool("IsShooting", false);
         yield return new WaitForSeconds(3);
         animator.SetBool("IsAttacking", true);
+    }
+
+    public void setEvocazione()
+    {
+        animator.SetTrigger("setAttack");
     }
 }

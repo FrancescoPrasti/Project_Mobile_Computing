@@ -24,46 +24,23 @@ public class PlayerManager : MonoBehaviour
     public GameObject[] playerPrefabs;
     int characterIndex;
 
-    //private bool startPos = false;
-
     public Vector3 posIniziale;
     public Vector3 posAttuale;
 
     public static Vector3 lastCheckPointPos = new Vector3(-12.4f, -3.760416f, 0);
-    //public bool primoCaricamento;
 
-    //public CaricamentiScenaSampleScene carSample;
+
+  
     private void Awake()
     {
         characterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
         GameObject player;
         player = Instantiate(playerPrefabs[characterIndex], lastCheckPointPos, Quaternion.identity);
-        /*primoCaricamento = carSample.primoCaricamento;
-        if(primoCaricamento == true)
-        {
-            Debug.Log("Entrato nel primo");
-            player = Instantiate(playerPrefabs[characterIndex], posIniziale, Quaternion.identity);
-            carSample.primoCaricamento = false;
-        }
-        else
-        {
-            Debug.Log("Entrato nel secondo");
-            player = Instantiate(playerPrefabs[characterIndex], posAttuale, Quaternion.identity);
-            //carSample.primoCaricamento = true;
-        }*/
-        /*if (startPos == false)
-        {
-            player = Instantiate(playerPrefabs[characterIndex], new Vector3(-12.04f, -3.82f, 0), Quaternion.identity);
-            startPos = true;
-        }
-        else
-            player = Instantiate(playerPrefabs[characterIndex], posIniziale, Quaternion.identity);*/
+        
         VCam.m_Follow = player.transform;
 
-        //CoinNumber = PlayerPrefs.GetInt("CoinNumber", 0);  // se non esiste la variabile CoinNumber la crea e la inizializza a zero
         isGameOver = false;
-        //playFabManager.getVirtualCurrencies();
-        //CoinNumber = 0;
+        
         Score = 0;
     }
 

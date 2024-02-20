@@ -19,6 +19,7 @@ TagManager:
   - ChestStanza1
   - Necromancer
   - HP
+  - ScheletroTutorial
   layers:
   - Default
   - TransparentFX

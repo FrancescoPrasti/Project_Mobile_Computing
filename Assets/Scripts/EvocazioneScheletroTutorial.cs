@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Scheletro : MonoBehaviour
+public class EvocazioneScheletroTutorial : MonoBehaviour
 {
     GameObject target;
     public int enemyHP = 100;
     public Animator animator;
+    public GameObject skeleton;
 
     public GameObject[] itemDrops;
     private bool itemDropped = false;
@@ -21,25 +21,33 @@ public class Scheletro : MonoBehaviour
         Physics2D.IgnoreCollision(target.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
+        if (isDead)
+        {
+            Instantiate(skeleton, new Vector3(0.56f, -3.894f), skeleton.transform.rotation);
+            isDead = false;
+            Destroy(this.gameObject);
+        }
+
+
         if (target.transform.position.x > transform.position.x)
         {
-            transform.localScale = new Vector2(-3.75f,3.75f);
+            transform.localScale = new Vector2(-3.75f, 3.75f);
         }
         else
         {
-            transform.localScale = new Vector2(3.75f,3.75f);
+            transform.localScale = new Vector2(3.75f, 3.75f);
         }
     }
 
     public void TakeDamage(int damageAmount)
     {
         enemyHP -= damageAmount;
-        if(isDead == false)
+        Debug.Log(enemyHP);
+        if (isDead == false)
             AudioManager.instance.Play("EnemieDamage");
-        if(enemyHP > 0)
+        if (enemyHP > 0)
         {
             animator.SetTrigger("Damage");
         }
@@ -62,18 +70,6 @@ public class Scheletro : MonoBehaviour
             itemDropped = true;
         }
 
-        PlayerManager.Score += 100;
-
-    }
-
-    public void PlayerDamage()
-    {
-
-        if (!target.GetComponent<PlayerCollision>().isInvincible)
-        {
-            AudioManager.instance.Play("EnemieAttack");
-            target.GetComponent<PlayerCollision>().TakeDamage();
-        }
     }
 
     private void ItemDrop()

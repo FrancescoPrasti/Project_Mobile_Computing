@@ -25,7 +25,7 @@ public class PlayerCollision : MonoBehaviour
         Physics2D.IgnoreLayerCollision(6, 8);
         GetComponent<Animator>().SetLayerWeight(1, 1);
         isInvincible = true;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         isInvincible = false;
         GetComponent<Animator>().SetLayerWeight(1, 0);
         Physics2D.IgnoreLayerCollision(6, 8, false);

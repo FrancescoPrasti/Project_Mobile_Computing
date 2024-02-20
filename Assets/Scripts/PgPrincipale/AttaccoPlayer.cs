@@ -52,6 +52,8 @@ public class AttaccoPlayer : MonoBehaviour
                     enemiesInRange[i].GetComponent<Demon>().TakeDamage(25);
                 else if(enemiesInRange[i].tag == "Necromancer")
                     enemiesInRange[i].GetComponent<Necromancer>().TakeDamage(25);
+                else if (enemiesInRange[i].tag == "ScheletroTutorial")
+                    enemiesInRange[i].GetComponent<EvocazioneScheletroTutorial>().TakeDamage(25);
             }
         }
 

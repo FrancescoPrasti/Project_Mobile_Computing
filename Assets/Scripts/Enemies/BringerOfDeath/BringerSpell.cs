@@ -14,7 +14,7 @@ public class BringerSpell : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-           //collision.GetComponent<PlayerCollision>().TakeDamage();
+           collision.GetComponent<PlayerCollision>().TakeDamage();
         }
     }
 
