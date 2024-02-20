@@ -2810,7 +2810,7 @@ MonoBehaviour:
   audio: {fileID: 672466640}
   VCam: {fileID: 327670147}
   playerPrefabs:
-  - {fileID: 769158389374727258, guid: b73c62ad17bd9bf458cd18ea15149478, type: 3}
+  - {fileID: 6742294433758846207, guid: 747b87914c269bf45811d22d70649ad4, type: 3}
   - {fileID: 544606774010591819, guid: 3b965008d43a0794295f9b7dca71982c, type: 3}
   posIniziale: {x: 3.25, y: 1.84, z: 0}
   posAttuale: {x: 0, y: 0, z: 0}

@@ -62,6 +62,9 @@ public class SceneTransition : MonoBehaviour
             PlayerManager.lastCheckPointPos = new Vector3(-10.31241f, -1.948063f, 0);
         else if(sceneToLoad.Equals("Castello") && actualScene.Equals("Stanza2"))
             PlayerManager.lastCheckPointPos = new Vector3(21.86f, -15.75f, 0);
+        else if(sceneToLoad.Equals("SampleScene") && actualScene.Equals("Menu"))
+            PlayerManager.lastCheckPointPos = new Vector3(-12.4f, -3.838769f, 0);
+
         StartCoroutine(ChangeScene());
     }
 }

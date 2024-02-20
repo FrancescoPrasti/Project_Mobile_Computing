@@ -6,18 +6,20 @@ public class DialogoIniziale : MonoBehaviour
 {
     public DialogueTrigger trigger;
     public GameObject DialogueBox;
-    public bool primoUtilizzo;
+    bool primoUtilizzo = true;
 
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (primoUtilizzo)
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
             DialogueBox.SetActive(true);
             trigger.StartDialogue();
+            primoUtilizzo = false;
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

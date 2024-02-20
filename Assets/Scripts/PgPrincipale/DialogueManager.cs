@@ -19,6 +19,10 @@ public class DialogueManager : MonoBehaviour
     int activeMessage = 0;
     public float textSpeed;
     public static bool isActive = false;
+    public static bool finale = false;
+
+
+    public FadeInOut fade;
 
     public void OpenDialogue(Message[] messages, Actor[] actors)
     {
@@ -54,6 +58,9 @@ public class DialogueManager : MonoBehaviour
             messageText.text = string.Empty;
             isActive = false;
             this.gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().enabled = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
+
         }
     }
 
