@@ -36,6 +36,7 @@ public class Demon : MonoBehaviour
 
     public IEnumerator SpawnFiammata()
     {
+        AudioManager.instance.Play("DemonAttack");
         for(int i=0; i<20; i++)
         {
             Instantiate(fiamma, new Vector2(spawnInzialeFiamme - i, 1.16f), Quaternion.identity);
@@ -52,6 +53,7 @@ public class Demon : MonoBehaviour
         }
         else
         {
+            AudioManager.instance.Stop("DemonAttack");
             j = 0;
             animator.SetBool("IsAttacking", false);
             SpawnFiammata();
@@ -66,7 +68,7 @@ public class Demon : MonoBehaviour
         Debug.Log(enemyHP);
         if(enemyHP > 0)
         {
-            //StartCoroutine(Danno());
+            AudioManager.instance.Play("EnemieDamage");
         }
         else if(enemyHP <= 0)
         {

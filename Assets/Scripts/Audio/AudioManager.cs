@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour {
 	public static AudioManager instance;
 
 	public Sound[] sounds;
-
+ 
 	void Awake ()
 	{
 		if (instance != null)
@@ -28,7 +28,6 @@ public class AudioManager : MonoBehaviour {
 			s.source.volume = s.volume;
 			s.source.pitch = s.pitch;
 			s.source.loop = s.loop;
-			
 		}
 	}
 

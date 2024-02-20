@@ -40,7 +40,7 @@ public class CharacterSelect : MonoBehaviour
                 {
                     c.isUnlocked = true;
                 }
-                // Stessa cosa si può scrivere cosi' in maniera meno verbosa
+                // Stessa cosa si puï¿½ scrivere cosi' in maniera meno verbosa
                 c.isUnlocked = false;PlayerPrefs.GetInt(c.name, 0) == 0 ? false : true;
             }
         }*/
@@ -102,6 +102,7 @@ public class CharacterSelect : MonoBehaviour
 
     public void BuyItem(int price)
     {
+        AudioManager.instance.Play("Buy");
         var request = new SubtractUserVirtualCurrencyRequest
         {
             VirtualCurrency = "CN",

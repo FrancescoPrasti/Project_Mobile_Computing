@@ -40,7 +40,8 @@ public class PlayerCollision : MonoBehaviour
         {
             animator.SetTrigger("Death");
             PlayerManager.isGameOver = true;
-            AudioManager.instance.Stop("VillageMusic");
+            /*AudioManager.instance.Stop("VillageMusic");
+            AudioManager.instance.Play("GameOver");*/
         }
         else
         {

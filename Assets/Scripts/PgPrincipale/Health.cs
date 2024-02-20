@@ -18,6 +18,8 @@ public class HealthManager : MonoBehaviour
         health = 3;
         if (cuoriColorati < 3)
             health = cuoriColorati;
+        else if(cuoriColorati > health)
+            health = cuoriColorati;
     }
 
 

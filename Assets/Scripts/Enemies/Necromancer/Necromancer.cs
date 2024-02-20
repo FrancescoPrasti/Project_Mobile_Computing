@@ -52,6 +52,7 @@ public class Necromancer : MonoBehaviour
         enemyHP -= damageAmount;
         if(enemyHP > 0)
         {
+            AudioManager.instance.Play("EnemieDamage");
             animator.SetTrigger("Damage");
         }
         else
@@ -92,6 +93,7 @@ public class Necromancer : MonoBehaviour
 
     public void Fire()
     {
+        AudioManager.instance.Play("NecromancerShoot");
         GameObject go = Instantiate(FireSkull, FireSkullHole.position, FireSkull.transform.rotation);
         if (target.transform.position.x < this.transform.position.x)
         {
