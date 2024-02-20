@@ -26,6 +26,7 @@ public class CoinAbitanti : MonoBehaviour
         {
             /*PlayerManager.CoinNumber++;
             PlayerPrefs.SetInt("CoinNumber", PlayerManager.CoinNumber);*/
+            AudioManager.instance.Play("RaccoltaCoin");
             PlayFabManager.instance.AddVirtualCurrency();
             Destroy(gameObject);
         }

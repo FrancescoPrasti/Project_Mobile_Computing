@@ -52,6 +52,7 @@ public class Eye : MonoBehaviour
         enemyHP -= damageAmount;
         if(enemyHP > 0)
         {
+            AudioManager.instance.Play("EnemieDamage");
             animator.SetTrigger("Damage");
         }
         else if(enemyHP <= 0)
@@ -118,6 +119,11 @@ public class Eye : MonoBehaviour
         {
            animator.SetBool("IsAttacking", false);
         }
+    }
+
+    public void MorsoEye()
+    {
+        AudioManager.instance.Play("EyeAttack");
     }
 
 }

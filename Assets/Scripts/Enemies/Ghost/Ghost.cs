@@ -44,12 +44,11 @@ public class Ghost : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         enemyHP -= damageAmount;
-        /*if(enemyHP > 0)
+        if(enemyHP > 0)
         {
-            animator.SetTrigger("Damage");
+            AudioManager.instance.Play("EnemieDamage");
         }
-        else*/
-        if(enemyHP <= 0)
+        else if(enemyHP <= 0)
         {
             animator.SetTrigger("vanish");
             death();
@@ -91,7 +90,8 @@ public class Ghost : MonoBehaviour
     {
         if (collision.transform.tag == "Player" && HealthManager.health > 0)
         {
-           collision.GetComponent<PlayerCollision>().TakeDamage();
+            AudioManager.instance.Play("GhostScream");
+            collision.GetComponent<PlayerCollision>().TakeDamage();
         }
     }
 

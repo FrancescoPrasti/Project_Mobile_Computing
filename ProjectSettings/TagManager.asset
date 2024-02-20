@@ -18,6 +18,7 @@ TagManager:
   - Demon
   - ChestStanza1
   - Necromancer
+  - HP
   layers:
   - Default
   - TransparentFX

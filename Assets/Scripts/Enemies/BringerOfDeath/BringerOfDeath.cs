@@ -39,6 +39,7 @@ public class BringerOfDeath : MonoBehaviour
         enemyHP -= damageAmount;
         if(enemyHP > 0)
         {
+            AudioManager.instance.Play("EnemieDamage");
             animator.SetTrigger("Damage");
         }
         else

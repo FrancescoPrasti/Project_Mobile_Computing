@@ -62,6 +62,8 @@ public class AttaccoPlayer : MonoBehaviour
         //this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 0.5f);
         if(PlayerPrefs.GetInt("SelectedCharacter", 0) == 0)
             AudioManager.instance.Play("SwordAttack");
+        if(PlayerPrefs.GetInt("SelectedCharacter", 0) == 1)
+            AudioManager.instance.Play("WizardAttack");
         isAttacking = true;
         controls.Disable();
     }

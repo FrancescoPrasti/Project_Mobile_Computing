@@ -14,12 +14,12 @@ public class PlayerManager : MonoBehaviour
     public TextMeshProUGUI CoinText;
 
     public static int Score;
-
     public static bool isGameOver;
     public GameObject GameOverScreen;
     public GameObject pauseMenuScreen;
     public Button pauseButton;
 
+    public AudioManager audio;
     public CinemachineVirtualCamera VCam;
     public GameObject[] playerPrefabs;
     int characterIndex;
@@ -67,16 +67,12 @@ public class PlayerManager : MonoBehaviour
         Score = 0;
     }
 
-    /*void Start()
-    {
-        AudioManager.instance.Play("VillageMusic");
-    }*/
-
-
     void FixedUpdate()
     {
         if (isGameOver)
         {
+            audio.GetComponent<GestioneAudio>().FermaAudio();
+            audio.GetComponent<GestioneAudio>().SoundGameOver();
             pauseButton.interactable = false;
             GameOverScreen.SetActive(true);
             PlayFabManager.instance.SendLeaderboard(Score);
@@ -97,17 +93,19 @@ public class PlayerManager : MonoBehaviour
     {
         Time.timeScale = 0;
         pauseMenuScreen.SetActive(true);
+        //gest.PausaAudio();
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
         pauseMenuScreen.SetActive(false);
+        //gest.RipresaAudio();
     }
 
     public void GoToMenu()
     {
-        AudioManager.instance.Stop("VillageMusic");
+        //gest.FermaAudio();
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1;
     }
