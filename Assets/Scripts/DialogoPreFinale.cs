@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class DialogoFinale : MonoBehaviour
+public class DialogoPreFinale : MonoBehaviour
 {
     public DialogueTrigger trigger;
     public GameObject DialogueBox;
     bool primoUtilizzo = true;
 
-    public void Fin()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (primoUtilizzo)
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().enabled = false;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
             DialogueBox.SetActive(true);
             trigger.StartDialogue();
-            DialogueManager.finale = true;
             primoUtilizzo = false;
         }
         else

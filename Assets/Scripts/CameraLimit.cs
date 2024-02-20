@@ -8,6 +8,7 @@ public class CameraLimit : MonoBehaviour
     GameObject target;
     public CinemachineVirtualCamera VCam;
     private CinemachineComponentBase componentBase;
+    public GameObject wall;
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
@@ -17,12 +18,13 @@ public class CameraLimit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(target.transform.position.x >= 82f)
+        if(target.transform.position.x >= 84f)
             {
                 if (componentBase is CinemachineFramingTransposer) {
                     var framingTransposer = componentBase as CinemachineFramingTransposer;
                     framingTransposer.m_SoftZoneWidth = 2;
                     framingTransposer.m_DeadZoneWidth = 2;
+                    wall.SetActive(true);
                 }
             }
     }

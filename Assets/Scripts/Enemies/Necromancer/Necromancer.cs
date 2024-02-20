@@ -15,8 +15,9 @@ public class Necromancer : MonoBehaviour
     public GameObject Skeleton;
     public Transform FireSkullHole;
     public float force = 5;
-    bool inizio = false;
-    public GameObject wall;
+    public static bool inizio = true;
+    public DialogoFinale df;
+    //public GameObject wall;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +37,11 @@ public class Necromancer : MonoBehaviour
         {
             this.GetComponent<SpriteRenderer>().flipX = true;
         }
-        if(inizio == false && (Vector2.Distance(target.transform.position, animator.transform.position) <= 10))
+        if(inizio == true && (Vector2.Distance(target.transform.position, animator.transform.position) <= 9) && DialogueManager.isActive==false)
         {
-            this.gameObject.SetActive(true);
-            inizio = true;
-            wall.SetActive(true);
+            //this.gameObject.SetActive(true);
+            inizio = false;
+            //wall.SetActive(true);
             animator.SetBool("IsAttacking", true);
         }
     }
@@ -68,6 +69,7 @@ public class Necromancer : MonoBehaviour
             ItemDrop();
             itemDropped = true;
         }
+        df.Fin();
         Destroy(gameObject);
     }
 

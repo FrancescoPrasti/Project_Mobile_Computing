@@ -9,8 +9,15 @@ public class DialogoTutorial : MonoBehaviour
 
     void Start()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
         DialogueBox.SetActive(true);
         trigger.StartDialogue();
-        
     }
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
+        DialogueBox.SetActive(true);
+        trigger.StartDialogue();
+    }*/
 }
