@@ -4597,6 +4597,11 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 127671512}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!1 &703474787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3302410367789662173, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+  m_PrefabInstance: {fileID: 1578076672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &731836157
 GameObject:
   m_ObjectHideFlags: 0
@@ -4927,6 +4932,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &790601914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703474787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acbf4dc53d1ccb40a7f145fc8d3c25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 845160939}
+  mixer: {fileID: 24100000, guid: f8a6a39a51dc48a4fa1c4e86803b32e5, type: 2}
 --- !u!1 &845160937
 GameObject:
   m_ObjectHideFlags: 0
@@ -5018,7 +5037,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 790601914}
         m_TargetAssemblyTypeName: MenuEvents, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 1
@@ -8600,7 +8619,7 @@ GameObject:
   - component: {fileID: 1550660940}
   m_Layer: 7
   m_Name: Piattaforma  (24)
-  m_TagString: Untagged
+  m_TagString: Terreno
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8858,7 +8877,7 @@ GameObject:
   - component: {fileID: 1562414488}
   m_Layer: 0
   m_Name: Piattaforme
-  m_TagString: Untagged
+  m_TagString: Terreno
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9437,7 +9456,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3632445673944143897, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 845160938}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3302410367789662173, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 790601914}
   m_SourcePrefab: {fileID: 100100000, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
 --- !u!224 &1578076673 stripped
 RectTransform:

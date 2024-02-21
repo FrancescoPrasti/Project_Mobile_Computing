@@ -23,7 +23,7 @@ public class Fire : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Player" && HealthManager.health > 0)
+        if (collision.transform.tag == "Player" && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCollision>().isInvincible && HealthManager.health > 0)
         {
             collision.GetComponent<PlayerCollision>().TakeDamage();
         }

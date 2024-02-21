@@ -12,7 +12,7 @@ public class BringerSpell : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Player")
+        if (collision.transform.tag == "Player" && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCollision>().isInvincible)
         {
            collision.GetComponent<PlayerCollision>().TakeDamage();
         }

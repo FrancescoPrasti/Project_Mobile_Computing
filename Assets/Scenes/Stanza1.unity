@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &72041345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3302410367789662173, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+  m_PrefabInstance: {fileID: 135559009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &135559009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -630,7 +635,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3632445673944143897, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1894319398}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3302410367789662173, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 598146443}
   m_SourcePrefab: {fileID: 100100000, guid: 692cab37e5bff544c96d49b0d4273d5c, type: 3}
 --- !u!224 &135559010 stripped
 RectTransform:
@@ -1787,6 +1795,20 @@ MonoBehaviour:
   fiamma: {fileID: 3545725703750118081, guid: e6f23500f2f43ed48b8ad295f65ddf6a, type: 3}
   spawnInzialeFiamme: 24.91
   secondsWait: 3
+--- !u!114 &598146443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72041345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acbf4dc53d1ccb40a7f145fc8d3c25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 1894319399}
+  mixer: {fileID: 24100000, guid: f8a6a39a51dc48a4fa1c4e86803b32e5, type: 2}
 --- !u!1 &604666140
 GameObject:
   m_ObjectHideFlags: 0
@@ -3684,7 +3706,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 598146443}
         m_TargetAssemblyTypeName: MenuEvents, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 1

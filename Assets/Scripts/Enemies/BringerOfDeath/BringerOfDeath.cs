@@ -12,28 +12,16 @@ public class BringerOfDeath : MonoBehaviour
     private bool itemDropped = false;
 
     public GameObject spell;
-    //GameObject go = null;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
         Physics2D.IgnoreCollision(target.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
-    // Update is called once per frame
-    /*void FixedUpdate()
-    {
-        if (target.transform.position.x > transform.position.x)
-        {
-            this.GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else
-        {
-            this.GetComponent<SpriteRenderer>().flipX = false;
-        }
-    }*/
-
+    
+    
     public void TakeDamage(int damageAmount)
     {
         enemyHP -= damageAmount;
@@ -54,17 +42,14 @@ public class BringerOfDeath : MonoBehaviour
 
     public void death()
     {
-        //transform.position = new Vector2(transform.position.x, -4.45f);
+       
 
         if (itemDropped == false)
         {
             ItemDrop();
             itemDropped = true;
         }
-        /*if(ManaManager.mana < 3)
-        {
-            ManaManager.mana++;
-        }*/
+        
         Destroy(gameObject);
     }
 
