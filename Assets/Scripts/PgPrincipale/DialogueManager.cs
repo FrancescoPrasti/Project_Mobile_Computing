@@ -86,6 +86,7 @@ public class DialogueManager : MonoBehaviour
             if (finale)
             {
                 victoryPanel.SetActive(true);
+                finale = false;
             }
 
         }

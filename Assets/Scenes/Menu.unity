@@ -3477,6 +3477,18 @@ MonoBehaviour:
           m_StringArgument: Bottone
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1334697162}
+        m_TargetAssemblyTypeName: TutorialButton, Assembly-CSharp
+        m_MethodName: setStato
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &712028373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6143,6 +6155,7 @@ GameObject:
   - component: {fileID: 1334697161}
   - component: {fileID: 1334697160}
   - component: {fileID: 1334697159}
+  - component: {fileID: 1334697162}
   m_Layer: 5
   m_Name: Tutorial_button
   m_TagString: Untagged
@@ -6238,6 +6251,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1334697162}
+        m_TargetAssemblyTypeName: TutorialButton, Assembly-CSharp
+        m_MethodName: setStato
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1334697160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6276,6 +6301,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334697157}
   m_CullTransparentMesh: 1
+--- !u!114 &1334697162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334697157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7516f343156cf46a8499cca284fe0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1342023553
 GameObject:
   m_ObjectHideFlags: 0
@@ -6912,6 +6949,7 @@ GameObject:
   - component: {fileID: 1432392538}
   - component: {fileID: 1432392539}
   - component: {fileID: 1432392540}
+  - component: {fileID: 1432392541}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7066,6 +7104,27 @@ MonoBehaviour:
   loginPanel: {fileID: 516395328}
   ShopButton: {fileID: 1618057328}
   LeaderboardButton: {fileID: 376807978}
+--- !u!114 &1432392541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432392533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d580673789d24b4b9b19a9753131bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoinText: {fileID: 0}
+  GameOverScreen: {fileID: 0}
+  pauseMenuScreen: {fileID: 0}
+  pauseButton: {fileID: 0}
+  audio: {fileID: 0}
+  VCam: {fileID: 0}
+  playerPrefabs: []
+  posIniziale: {x: 0, y: 0, z: 0}
+  posAttuale: {x: 0, y: 0, z: 0}
 --- !u!1 &1447793581
 GameObject:
   m_ObjectHideFlags: 0
